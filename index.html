@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dang Tran Dat | AI Growth & Product Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ── LIGHT TOKENS ── */
+:root {
+  --ink:#1a1a1a; --ink-2:#444; --ink-3:#888;
+  --rule:#d8d5cf; --paper:#fafaf8; --surface:#f4f2ee;
+  --accent:#1a3a6b; --accent-light:#e8edf5;
+  --serif:'Crimson Pro',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --max:900px; --col-l:260px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+/* ── DARK TOKENS ── */
+[data-theme="dark"] {
+  --ink:#edeae4; --ink-2:#b0ab9e; --ink-3:#6e6a62;
+  --rule:#2e2c28; --paper:#131210; --surface:#1c1a17;
+  --accent:#7da4d8; --accent-light:#1a2535;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:15px;line-height:1.65;transition:background .3s,color .3s;}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s var(--ease),transform .55s var(--ease);}
+.reveal.visible{opacity:1;transform:none;}
+.d1{transition-delay:.08s;} .d2{transition-delay:.16s;} .d3{transition-delay:.24s;} .d4{transition-delay:.32s;}
+
+/* ── TOPBAR ── */
+.topbar{border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:200;transition:background .3s,border-color .3s;}
+.topbar-inner{max-width:var(--max);margin:0 auto;padding:0 32px;height:52px;display:flex;align-items:center;justify-content:space-between;}
+.brand{font-family:var(--serif);font-size:17px;color:var(--ink);text-decoration:none;letter-spacing:.01em;}
+.tnav{display:flex;align-items:center;gap:18px;list-style:none;}
+.tnav a{font-size:12px;font-weight:400;color:var(--ink-2);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .15s;}
+.tnav a:hover{color:var(--accent);}
+.nbtn{font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border:1px solid var(--rule);border-radius:2px;background:transparent;color:var(--ink-2);cursor:pointer;transition:all .15s;font-family:var(--sans);}
+.nbtn:hover{border-color:var(--accent);color:var(--accent);}
+.rbtn{background:var(--accent);color:var(--paper)!important;border-color:var(--accent)!important;padding:5px 14px;text-decoration:none;display:inline-flex;align-items:center;gap:5px;}
+.rbtn:hover{opacity:.85;}
+/* ── CHỈNH SỬA TOPBAR BUTTON (THEME TOGGLE) ── */
+.tbtn {
+  width: auto; /* Tự động co giãn để chứa 2 icon */
+  height: 32px;
+  padding: 0 8px; /* Khoảng cách viền 2 bên */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Khoảng cách giữa mặt trăng và mặt trời */
+  border: 1px solid var(--rule);
+  border-radius: 4px; /* Bo góc lớn hơn một chút giống ảnh mẫu */
+  background: transparent;
+  cursor: pointer;
+  transition: all .15s var(--ease);
+}
+
+.tbtn:hover {
+  border-color: var(--accent);
+}
+
+.tbtn svg {
+  display: block;
+  transition: opacity 0.2s ease, stroke 0.2s ease;
+}
+
+/* Giao diện Sáng (Light Mode): Mặt trời sáng, Mặt trăng mờ */
+.i-sun { opacity: 1; stroke: var(--ink); }
+.i-moon { opacity: 0.3; stroke: var(--ink-2); }
+
+/* Giao diện Tối (Dark Mode): Mặt trăng sáng, Mặt trời mờ */
+[data-theme="dark"] .i-sun { opacity: 0.3; stroke: var(--ink-2); }
+[data-theme="dark"] .i-moon { opacity: 1; stroke: var(--accent); /* Nhấn màu accent cho mặt trăng */ }
+/* ── PAGE ── */
+.page{max-width:var(--max);margin:0 auto;padding:0 32px 80px;}
+
+/* ── PROFILE ── */
+.prof-sec{padding:56px 0 40px;border-bottom:1px solid var(--rule);}
+.pgrid{display:grid;grid-template-columns:var(--col-l) 1fr;gap:48px;align-items:start;}
+.av-wrap{display:flex;flex-direction:column;align-items:flex-start;gap:16px;}
+.avatar{width:160px;height:160px;border-radius:4px;border:1px solid var(--rule);background:var(--surface);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:48px;font-style:italic;color:var(--accent);overflow:hidden;transition:background .3s;}
+.av-meta{font-size:12px;color:var(--ink-3);letter-spacing:.04em;text-transform:uppercase;line-height:1.9;}
+.av-meta a{display:block;color:var(--accent);text-decoration:none;font-weight:500;}
+.av-meta a:hover{text-decoration:underline;}
+.prof-h1{font-family:var(--serif);font-size:38px;font-weight:600;line-height:1.15;color:var(--ink);letter-spacing:-.01em;margin-bottom:4px;}
+.prof-h1 em{font-style:italic;font-weight:400;color:var(--ink-2);}
+.role{font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;}
+.bio{font-family:var(--serif);font-size:18px;line-height:1.75;color:var(--ink-2);max-width:540px;margin-bottom:24px;}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;}
+.tag{font-size:11px;font-weight:400;letter-spacing:.05em;padding:4px 10px;border:1px solid var(--rule);border-radius:2px;color:var(--ink-3);text-transform:uppercase;transition:border-color .3s;}
+.crow{display:flex;flex-wrap:wrap;gap:20px;font-size:13px;color:var(--ink-3);}
+.crow a{color:var(--accent);text-decoration:none;}
+.crow a:hover{text-decoration:underline;}
+.citem{line-height: 1; align-items: end;}
+
+/* ── BODY GRID ── */
+.bgrid{display:grid;grid-template-columns:var(--col-l) 1fr;gap:48px;padding-top:40px;align-items:start;}
+
+/* ── SEC LABEL ── */
+.slabel{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--rule);transition:border-color .3s;}
+
+/* ── SIDEBAR ── */
+.sblock{margin-bottom:32px;}
+.slist{list-style:none;font-size:13.5px;color:var(--ink-2);}
+.slist li{padding:5px 0;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;gap:8px;transition:border-color .3s;}
+.slist li:last-child{border-bottom:none;}
+.tlbl{font-size:11px;color:var(--ink-3);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;}
+.edu-deg{font-weight:500;font-size:13.5px;color:var(--ink);}
+.edu-sch{font-size:13px;color:var(--ink-2);}
+.edu-yr{font-size:12px;color:var(--ink-3);}
+
+/* ── PROJECTS ── */
+.plist{display:flex;flex-direction:column;}
+.pitem{padding:22px 0;border-bottom:1px solid var(--rule);transition:border-color .3s;}
+.pitem:first-child{padding-top:0;}
+.pitem:last-child{border-bottom:none;}
+.pnum{font-size:11px;font-weight:500;letter-spacing:.08em;color:var(--ink-3);text-transform:uppercase;margin-bottom:6px;}
+.ptitle{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--ink);margin-bottom:6px;line-height:1.3;}
+.pdesc{font-size:14px;color:var(--ink-2);line-height:1.65;margin-bottom:12px;max-width:480px;}
+.ptags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+.ptag{font-size:11px;letter-spacing:.04em;padding:3px 8px;background:var(--accent-light);color:var(--accent);border-radius:2px;text-transform:uppercase;transition:background .3s;}
+.dbtn{font-size:12px;font-weight:500;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;font-family:var(--sans);display:inline-flex;align-items:center;gap:4px;text-decoration:underline;text-underline-offset:3px;text-decoration-color:transparent;transition:text-decoration-color .15s;}
+.dbtn:hover{text-decoration-color:var(--accent);}
+
+/* ── CASE STUDIES ── */
+.clist{display:flex;flex-direction:column;}
+.citem{padding:20px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:16px;align-items:end;transition:border-color .3s;}
+.citem:first-child{padding-top:0;}
+.citem:last-child{border-bottom:none;}
+.ctitle{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--ink);margin-bottom:5px;line-height:1.3;}
+.cdesc{font-size:13.5px;color:var(--ink-2);line-height:1.65;}
+.cdbtn{font-size:12px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-top:8px;display:inline-flex;align-items:center;gap:4px;font-family:var(--sans);text-decoration:underline;text-underline-offset:3px;text-decoration-color:transparent;transition:text-decoration-color .15s;}
+.cdbtn:hover{text-decoration-color:var(--accent);}
+.cstat{text-align:right;white-space:nowrap;}
+.snum{font-family:var(--serif);font-size:28px;font-weight:600;color:var(--accent);line-height:1;display:block;}
+.slbl2{font-size:11px;color:var(--ink-3);letter-spacing:.04em;text-transform:uppercase;}
+
+/* ── MODAL ── */
+.moverlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:900;display:flex;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .25s;}
+.moverlay.open{opacity:1;pointer-events:all;}
+.mbox{background:var(--paper);border:1px solid var(--rule);border-radius:6px;max-width:680px;width:100%;padding:40px 44px;position:relative;transform:translateY(20px);transition:transform .3s var(--ease),background .3s,border-color .3s;}
+.moverlay.open .mbox{transform:none;}
+.mclose{position:absolute;top:18px;right:20px;background:none;border:none;cursor:pointer;color:var(--ink-3);font-size:22px;line-height:1;padding:4px 8px;border-radius:2px;transition:color .15s,background .15s;}
+.mclose:hover{color:var(--ink);background:var(--surface);}
+.mlabel{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px;}
+.mtitle{font-family:var(--serif);font-size:28px;font-weight:600;color:var(--ink);line-height:1.25;margin-bottom:6px;}
+.msub{font-size:14px;color:var(--ink-3);margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--rule);}
+.mstats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px;}
+.mscard{background:var(--surface);border-radius:4px;padding:14px 16px;text-align:center;transition:background .3s;}
+.msnum{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--accent);display:block;line-height:1;margin-bottom:4px;}
+.mslbl{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);}
+.msec{margin-bottom:22px;}
+.msec-t{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px;}
+.mbody{font-size:14.5px;color:var(--ink-2);line-height:1.75;}
+.mbody p{margin-bottom:10px;}
+.mbody p:last-child{margin-bottom:0;}
+.msteps{list-style:none;counter-reset:steps;}
+.msteps li{counter-increment:steps;display:flex;gap:14px;padding:10px 0;border-bottom:1px solid var(--rule);font-size:14px;color:var(--ink-2);line-height:1.6;}
+.msteps li:last-child{border-bottom:none;}
+.msteps li::before{content:counter(steps,decimal-leading-zero);font-size:12px;font-weight:500;color:var(--accent);min-width:24px;padding-top:1px;letter-spacing:.04em;}
+.mtags{display:flex;flex-wrap:wrap;gap:6px;}
+.mtag{font-size:11px;letter-spacing:.04em;padding:4px 10px;background:var(--accent-light);color:var(--accent);border-radius:2px;text-transform:uppercase;transition:background .3s;}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--rule);padding:28px 32px;max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--ink-3);transition:border-color .3s;}
+footer a{color:var(--accent);text-decoration:none;}
+footer a:hover{text-decoration:underline;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:700px){
+  .topbar-inner,.page{padding-left:20px;padding-right:20px;}
+  .hs{display:none;}
+  .pgrid,.bgrid{grid-template-columns:1fr;gap:28px;}
+  .av-wrap{flex-direction:row;align-items:center;}
+  .citem{grid-template-columns:1fr;}
+  .cstat{text-align:left;}
+  .mbox{padding:28px 22px;}
+  .mstats{grid-template-columns:repeat(2,1fr);}
+  footer{flex-direction:column;gap:8px;text-align:center;padding:20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#">Đặng Trần Đạt</a>
+    <ul class="tnav">
+      <li class="hs"><a href="#profile" data-en="Home" data-vi="Trang chủ">Home</a></li>
+      <li class="hs"><a href="#projects" data-en="Projects" data-vi="Dự án">Projects</a></li>
+      <li class="hs"><a href="#cases" data-en="Case Studies" data-vi="Nghiên cứu">Case Studies</a></li>
+      <li>
+        <!-- ★ REPLACE href with your Google Drive PDF share link ★ -->
+        <a class="nbtn rbtn" href="YOUR_GOOGLE_DRIVE_PDF_LINK_HERE" target="_blank" rel="noopener"
+           data-en="↓ Résumé" data-vi="↓ Hồ sơ">↓ Résumé</a>
+      </li>
+      <li><button class="nbtn" id="lang-toggle" onclick="toggleLang()">VI</button></li>
+      <li>
+        <button class="tbtn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+          <svg class="i-moon" width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="var(--ink-2)" stroke-width="1.5">
+            <path d="M14 10.5A6.5 6.5 0 015.5 2 6.5 6.5 0 1014 10.5z"/>
+          </svg>
+          <svg class="i-sun" width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="var(--ink-2)" stroke-width="1.5">
+            <circle cx="8" cy="8" r="3"/>
+            <line x1="8" y1="1" x2="8" y2="2.5"/><line x1="8" y1="13.5" x2="8" y2="15"/>
+            <line x1="1" y1="8" x2="2.5" y2="8"/><line x1="13.5" y1="8" x2="15" y2="8"/>
+            <line x1="3.05" y1="3.05" x2="4.1" y2="4.1"/><line x1="11.9" y1="11.9" x2="12.95" y2="12.95"/>
+            <line x1="3.05" y1="12.95" x2="4.1" y2="11.9"/><line x1="11.9" y1="4.1" x2="12.95" y2="3.05"/>
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- PROFILE -->
+  <section class="prof-sec reveal" id="profile">
+    <div class="pgrid">
+      <div class="av-wrap">
+        <div class="avatar">Đ</div>
+        <div class="av-meta">
+          <span>Hanoi, Vietnam</span><br>
+          <a href="mailto:your@email.com">dtrdat.work@gmail.com</a>
+          <a href="https://zalo.me/0362305210" target="_blank">Zalo ↗</a>
+          <a href="https://github.com/yourprofile" target="_blank">GitHub ↗</a>
+        </div>
+      </div>
+      <div>
+        <h1 class="prof-h1">Đặng Trần <em>Đạt</em></h1>
+        <div class="role" data-en="AI Growth & Product Marketing Specialist" data-vi="Chuyên gia AI Growth & Product Marketing">AI Growth &amp; Product Marketing Specialist</div>
+        <p class="bio" data-en="I design and build AI-powered marketing systems that acquire, activate, and retain users — bridging strategic frameworks with technical execution." data-vi="Tôi thiết kế và xây dựng các hệ thống marketing ứng dụng AI để thu hút, kích hoạt và giữ chân người dùng — kết nối tư duy chiến lược với khả năng thực thi kỹ thuật.">
+          I design and build AI-powered marketing systems that acquire, activate, and retain users — bridging strategic frameworks with technical execution.
+        </p>
+        <div class="tags">
+          <span class="tag">AI Growth</span><span class="tag">Product Marketing</span>
+          <span class="tag">Marketing Automation</span><span class="tag">Performance Analytics</span>
+          <span class="tag">Digital Economics</span>
+        </div>
+        <div class="crow">
+          <span class="citem">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="14" height="10" rx="1.5"/><polyline points="1,3 8,9.5 15,3"/></svg>
+            <a href="mailto:your@email.com">your@email.com</a>
+          </span>
+          <span class="citem">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="7" r="2.5"/><path d="M8 1a6 6 0 016 6c0 4-6 8-6 8S2 11 2 7a6 6 0 016-6z"/></svg>
+            <span>Hanoi, Vietnam</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BODY -->
+  <div class="bgrid">
+
+    <!-- SIDEBAR -->
+    <aside>
+      <div class="sblock reveal d1">
+        <div class="slabel" data-en="Education" data-vi="Học vấn">Education</div>
+        <div style="margin-bottom:14px;">
+          <div class="edu-deg" data-en="B.Sc. Digital Economics" data-vi="Cử nhân Kinh tế Số">B.Sc. Digital Economics</div>
+          <div class="edu-sch" data-en="[Your University]" data-vi="[Trường đại học của bạn]">[Your University]</div>
+          <div class="edu-yr">2023 – 2027</div>
+        </div>
+      </div>
+
+      <div class="sblock reveal d2">
+        <div class="slabel" data-en="Core Competencies" data-vi="Năng lực cốt lõi">Core Competencies</div>
+        <ul class="slist">
+          <li><span data-en="Growth Strategy" data-vi="Chiến lược tăng trưởng">Growth Strategy</span><span class="tlbl">Strategy</span></li>
+          <li><span data-en="AI/ML Integration" data-vi="Tích hợp AI/ML">AI/ML Integration</span><span class="tlbl">Technical</span></li>
+          <li><span data-en="Marketing Analytics" data-vi="Phân tích Marketing">Marketing Analytics</span><span class="tlbl">Data</span></li>
+          <li><span data-en="Content Automation" data-vi="Tự động hóa nội dung">Content Automation</span><span class="tlbl">Exec</span></li>
+          <li><span data-en="Funnel Optimization" data-vi="Tối ưu phễu">Funnel Optimization</span><span class="tlbl">CRO</span></li>
+          <li><span>Python / SQL</span><span class="tlbl">Dev</span></li>
+        </ul>
+      </div>
+
+      <div class="sblock reveal d3">
+        <div class="slabel" data-en="Tools & Stack" data-vi="Công cụ & Nền tảng">Tools &amp; Stack</div>
+        <ul class="slist">
+          <li><span>Google Analytics 4</span></li>
+          <li><span>Meta Ads / Google Ads</span></li>
+          <li><span>Make / n8n</span></li>
+          <li><span>Notion / Airtable</span></li>
+          <li><span>OpenAI API</span></li>
+          <li><span>Webflow / HTML+CSS</span></li>
+        </ul>
+      </div>
+
+      <div class="sblock reveal d4">
+        <div class="slabel" data-en="Languages" data-vi="Ngôn ngữ">Languages</div>
+        <ul class="slist">
+          <li><span data-en="Vietnamese" data-vi="Tiếng Việt">Vietnamese</span><span class="tlbl" data-en="Native" data-vi="Bản ngữ">Native</span></li>
+          <li><span data-en="English" data-vi="Tiếng Anh">English</span><span class="tlbl">B2+</span></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+
+      <!-- PROJECTS -->
+      <section id="projects" style="margin-bottom:48px;">
+        <div class="slabel reveal" data-en="Selected Projects" data-vi="Dự án tiêu biểu">Selected Projects</div>
+        <div class="plist">
+
+          <div class="pitem reveal">
+            <div class="pnum" data-en="Project 01" data-vi="Dự án 01">Project 01</div>
+            <div class="ptitle" data-en="AI Content Automation System" data-vi="Hệ thống Tự động hóa Nội dung bằng AI">AI Content Automation System</div>
+            <p class="pdesc" data-en="Built an end-to-end pipeline that generates, scores, and publishes SEO-optimized content at scale using GPT-4 and Make.com. Reduced manual content production time by 70%." data-vi="Xây dựng hệ thống đầu cuối tự động tạo, đánh giá và xuất bản nội dung SEO theo quy mô lớn sử dụng GPT-4 và Make.com. Giảm 70% thời gian sản xuất nội dung thủ công.">
+              Built an end-to-end pipeline that generates, scores, and publishes SEO-optimized content at scale using GPT-4 and Make.com. Reduced manual content production time by 70%.
+            </p>
+            <div class="ptags"><span class="ptag">GPT-4</span><span class="ptag">Make.com</span><span class="ptag">SEO</span><span class="ptag">Automation</span></div>
+            <button class="dbtn" onclick="openModal('p1')" data-en="View full case study →" data-vi="Xem chi tiết →">View full case study →</button>
+          </div>
+
+          <div class="pitem reveal d1">
+            <div class="pnum" data-en="Project 02" data-vi="Dự án 02">Project 02</div>
+            <div class="ptitle" data-en="Full-Funnel Marketing Intelligence Dashboard" data-vi="Dashboard Phân tích Toàn phễu Marketing">Full-Funnel Marketing Intelligence Dashboard</div>
+            <p class="pdesc" data-en="Designed a unified analytics dashboard integrating GA4, Meta Ads, and CRM data. Enabled real-time attribution modeling and cohort analysis for performance decision-making." data-vi="Xây dựng dashboard phân tích hợp nhất tích hợp GA4, Meta Ads và dữ liệu CRM. Cho phép mô hình hóa phân bổ theo thời gian thực và phân tích cohort để hỗ trợ quyết định hiệu suất.">
+              Designed a unified analytics dashboard integrating GA4, Meta Ads, and CRM data. Enabled real-time attribution modeling and cohort analysis for performance decision-making.
+            </p>
+            <div class="ptags"><span class="ptag">GA4</span><span class="ptag">Python</span><span class="ptag">Attribution</span><span class="ptag">BI</span></div>
+            <button class="dbtn" onclick="openModal('p2')" data-en="View full case study →" data-vi="Xem chi tiết →">View full case study →</button>
+          </div>
+
+          <div class="pitem reveal d2">
+            <div class="pnum" data-en="Project 03" data-vi="Dự án 03">Project 03</div>
+            <div class="ptitle" data-en="AI Conversion Chatbot" data-vi="Chatbot AI Tối ưu Chuyển đổi">AI Conversion Chatbot</div>
+            <p class="pdesc" data-en="Deployed a context-aware chatbot on a landing page using the OpenAI API. Personalized responses based on user intent signals, increasing form submission rates by 22%." data-vi="Triển khai chatbot nhận thức ngữ cảnh trên landing page sử dụng OpenAI API. Phản hồi được cá nhân hóa dựa trên tín hiệu ý định người dùng, tăng tỷ lệ điền form 22%.">
+              Deployed a context-aware chatbot on a landing page using the OpenAI API. Personalized responses based on user intent signals, increasing form submission rates by 22%.
+            </p>
+            <div class="ptags"><span class="ptag">OpenAI API</span><span class="ptag">JavaScript</span><span class="ptag">CRO</span></div>
+            <button class="dbtn" onclick="openModal('p3')" data-en="View full case study →" data-vi="Xem chi tiết →">View full case study →</button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CASE STUDIES -->
+      <section id="cases">
+        <div class="slabel reveal" data-en="Case Studies" data-vi="Nghiên cứu điển hình">Case Studies</div>
+        <div class="clist">
+
+          <div class="citem reveal">
+            <div>
+              <div class="ctitle" data-en="AI-Driven Ad Creative Testing" data-vi="Thử nghiệm Creative Quảng cáo bằng AI">AI-Driven Ad Creative Testing</div>
+              <p class="cdesc" data-en="Applied generative AI to produce 40+ ad copy variants. Ran structured A/B tests across Meta and Google Ads. Statistical significance achieved in 12 days instead of the typical 30." data-vi="Ứng dụng AI tạo sinh sản xuất 40+ biến thể copy quảng cáo. Thực hiện A/B test có cấu trúc trên Meta và Google Ads. Đạt mức ý nghĩa thống kê trong 12 ngày.">
+                Applied generative AI to produce 40+ ad copy variants. Ran structured A/B tests across Meta and Google Ads. Statistical significance achieved in 12 days instead of the typical 30.
+              </p>
+              <button class="cdbtn" onclick="openModal('c1')" data-en="Read full study →" data-vi="Xem nghiên cứu →">Read full study →</button>
+            </div>
+            <div class="cstat"><span class="snum">+20%</span><span class="slbl2">CTR</span></div>
+          </div>
+
+          <div class="citem reveal d1">
+            <div>
+              <div class="ctitle" data-en="Conversion Funnel Restructure" data-vi="Tái cấu trúc Phễu Chuyển đổi">Conversion Funnel Restructure</div>
+              <p class="cdesc" data-en="Conducted qualitative funnel audits using session recordings and heatmaps. Identified drop-off patterns at checkout. Redesigned UX flow and simplified messaging hierarchy." data-vi="Thực hiện kiểm toán phễu định tính sử dụng session recording và heatmap. Xác định mô hình thoát trang tại bước thanh toán. Thiết kế lại luồng UX và đơn giản hóa cấu trúc thông điệp.">
+                Conducted qualitative funnel audits using session recordings and heatmaps. Identified drop-off patterns at checkout. Redesigned UX flow and simplified messaging hierarchy.
+              </p>
+              <button class="cdbtn" onclick="openModal('c2')" data-en="Read full study →" data-vi="Xem nghiên cứu →">Read full study →</button>
+            </div>
+            <div class="cstat"><span class="snum">−15%</span><span class="slbl2">CPA</span></div>
+          </div>
+
+          <div class="citem reveal d2">
+            <div>
+              <div class="ctitle" data-en="Retention Loop Engineering" data-vi="Xây dựng Vòng lặp Giữ chân Người dùng">Retention Loop Engineering</div>
+              <p class="cdesc" data-en="Mapped user lifecycle stages and designed behavioral trigger sequences via email and in-app messaging. Leveraged cohort analysis to identify high-LTV user patterns." data-vi="Lập bản đồ các giai đoạn vòng đời người dùng và thiết kế chuỗi trigger hành vi qua email và in-app messaging. Phân tích cohort để xác định mô hình người dùng có LTV cao.">
+                Mapped user lifecycle stages and designed behavioral trigger sequences via email and in-app messaging. Leveraged cohort analysis to identify high-LTV user patterns.
+              </p>
+              <button class="cdbtn" onclick="openModal('c3')" data-en="Read full study →" data-vi="Xem nghiên cứu →">Read full study →</button>
+            </div>
+            <div class="cstat"><span class="snum">+34%</span><span class="slbl2" data-en="Retention D30" data-vi="Giữ chân D30">Retention D30</span></div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<footer>
+  <span>© 2026 Nguyen Thanh Dat</span>
+  <span>
+    <a href="mailto:your@email.com">your@email.com</a> &nbsp;·&nbsp;
+    <!-- ★ REPLACE href with your Google Drive PDF share link ★ -->
+    <a href="YOUR_GOOGLE_DRIVE_PDF_LINK_HERE" target="_blank" rel="noopener" data-en="Download Résumé ↓" data-vi="Tải hồ sơ ↓">Download Résumé ↓</a>
+  </span>
+</footer>
+
+<!-- MODAL -->
+<div class="moverlay" id="moverlay" onclick="closeOut(event)">
+  <div class="mbox" id="mbox" role="dialog">
+    <button class="mclose" onclick="closeModal()">×</button>
+    <div id="mcontent"></div>
+  </div>
+</div>
+
+<script>
+/* ── MODAL DATA ── */
+const M = {
+  p1:{
+    label:'Project 01',title:'AI Content Automation System',sub:'GPT-4 · Make.com · Webflow CMS · 2024',
+    stats:[{n:'−70%',l:'Production Time'},{n:'3×',l:'Content Output'},{n:'↑18%',l:'Organic Traffic'}],
+    ctx:'A growing D2C brand needed to scale its blog and social output without proportionally scaling headcount. The bottleneck was a 4-step manual content process: brief writing → drafting → SEO optimization → CMS publishing.',
+    steps:['Audited content production workflow to identify automation leverage points.','Designed a prompt architecture using GPT-4 that generates brand-consistent drafts from a keyword + intent input.','Built a scoring layer in Python to evaluate readability, keyword density, and tone alignment before publishing.','Automated CMS publishing via Make.com webhooks connected to Webflow CMS.','Implemented a human review gate for top-of-funnel content to maintain editorial standards.'],
+    outcome:'Manual writing time dropped by 70%. The team went from 4 articles/week to 12, with organic sessions increasing 18% within 60 days. Cost per published article dropped by 65%.',
+    tags:['GPT-4','Make.com','Python','SEO','Webflow CMS','Automation']
+  },
+  p2:{
+    label:'Project 02',title:'Full-Funnel Marketing Intelligence Dashboard',sub:'GA4 · Meta Ads API · Python · Looker Studio · 2024',
+    stats:[{n:'4',l:'Data Sources'},{n:'−60%',l:'Reporting Time'},{n:'↑22%',l:'ROAS Clarity'}],
+    ctx:'A performance marketing team was operating with siloed data — Meta Ads, Google Ads, GA4, and CRM all existed in separate dashboards. Attribution decisions were made on incomplete views, leading to budget misallocation.',
+    steps:['Mapped the full data architecture: event taxonomy, UTM structure, conversion points, and CRM sync logic.','Built ETL scripts in Python to pull data from Meta Ads API, Google Ads API, and GA4 Data API on a daily schedule.','Modeled a unified attribution table with first-touch, last-touch, and linear credit models side-by-side.','Designed cohort analysis views segmented by acquisition channel and campaign type.','Deployed to Looker Studio with automated email digests for the marketing team.'],
+    outcome:'Weekly reporting time dropped from 6 hours to under 1 hour. The team identified 3 campaigns with high click volume but near-zero revenue contribution — reallocating that budget improved ROAS by 22%.',
+    tags:['GA4','Meta Ads API','Python','Looker Studio','Attribution','Cohort Analysis']
+  },
+  p3:{
+    label:'Project 03',title:'AI Conversion Chatbot',sub:'OpenAI API · JavaScript · Landing Page CRO · 2025',
+    stats:[{n:'+22%',l:'Form Submissions'},{n:'−28%',l:'Bounce Rate'},{n:'2.4×',l:'Session Time'}],
+    ctx:'A SaaS landing page was generating traffic but suffering from a high drop-off rate before the signup form. User research revealed that visitors had unanswered product questions they could not resolve from static copy alone.',
+    steps:['Analyzed session recordings and exit surveys to identify top visitor questions and objections.','Designed a system prompt architecture giving the chatbot product context, tone guidelines, and response constraints.','Built the chatbot UI in vanilla JavaScript — non-blocking, accessible, mobile-optimized.','Implemented intent detection: visitors asking pricing questions are routed to a CTA; feature questions receive detailed answers.','A/B tested chatbot placement (bottom-right float vs. inline mid-page trigger) — inline won by +9% in submissions.'],
+    outcome:'Form submission rate increased by 22%. Bounce rate dropped 28% for users who engaged with the chatbot. Average session duration increased 2.4×, indicating higher-quality engagement.',
+    tags:['OpenAI API','JavaScript','CRO','A/B Testing','UX Research']
+  },
+  c1:{
+    label:'Case Study',title:'AI-Driven Ad Creative Testing',sub:'Meta Ads · Google Ads · Generative AI · 2024',
+    stats:[{n:'+20%',l:'CTR Lift'},{n:'40+',l:'Ad Variants'},{n:'12d',l:'Time to Significance'}],
+    ctx:'An e-commerce client was running static ad creatives across Meta and Google for 6+ months with declining CTR and rising CPCs. The hypothesis: creative fatigue was the primary driver, not audience saturation.',
+    steps:['Audited 90 days of ad performance data to identify fatigued creative patterns and top-performing angles.','Developed a generative AI prompt framework based on 5 copy angles: FOMO, social proof, outcome-focused, curiosity, and objection handling.','Generated 40+ copy variants per angle, filtered by brand voice scoring.','Structured a statistically rigorous A/B test using MDE of 10%, power of 80%, and significance threshold of 95%.','Allocated budget dynamically — winning variants received increased spend within 48 hours of statistical significance.'],
+    outcome:'The AI-generated "outcome-focused" copy angle outperformed all controls. CTR increased by 20% and CPC dropped 14% within the test window. Full rollout produced a 17% improvement in ROAS over 30 days.',
+    tags:['Meta Ads','Google Ads','Generative AI','A/B Testing','Copy Strategy','Statistics']
+  },
+  c2:{
+    label:'Case Study',title:'Conversion Funnel Restructure',sub:'CRO · UX Audit · Hotjar · 2024',
+    stats:[{n:'−15%',l:'CPA Reduction'},{n:'+11%',l:'Checkout Rate'},{n:'3',l:'Funnel Steps Removed'}],
+    ctx:"A lead generation funnel for a B2B SaaS product had a 68% drop-off rate between the pricing page and form submission. Traffic quality was validated — the conversion problem was structural, not demand-driven.",
+    steps:["Conducted a full heuristic audit of the funnel against Nielsen's 10 usability principles.",'Analyzed Hotjar session recordings (n=200) and heatmaps to identify friction points and rage-click zones.','Ran 5-second tests on the value proposition headline — original copy scored below average on clarity.','Redesigned messaging hierarchy: lead with outcome, defer features to secondary position.','Reduced form fields from 9 to 4 by deferring non-essential data collection to post-signup onboarding.','Eliminated a redundant confirmation page between form and CTA — reduced steps from 5 to 2.'],
+    outcome:'Checkout completion rate increased 11%. CPA dropped 15% within 30 days of launch. The simplified form alone accounted for 60% of the conversion lift based on isolated testing.',
+    tags:['CRO','UX Audit','Hotjar','A/B Testing','Copywriting','Form Optimization']
+  },
+  c3:{
+    label:'Case Study',title:'Retention Loop Engineering',sub:'Email Automation · In-App Messaging · Cohort Analysis · 2025',
+    stats:[{n:'+34%',l:'D30 Retention'},{n:'5',l:'Trigger Sequences'},{n:'2.1×',l:'Feature Adoption'}],
+    ctx:"A mobile app's Day 1 activation rate was healthy (72%) but Day 30 retention was critically low at 18%. Cohort analysis revealed a clear activation cliff: users who completed 3+ core actions in the first session retained at 3× the rate of those who completed fewer.",
+    steps:['Mapped the user lifecycle using event data: activation → habit formation → churn risk signals.','Identified the "activation threshold" (3 core actions in session 1) as the primary retention predictor.','Designed 5 behavioral trigger sequences: onboarding nudge, feature discovery, re-engagement at day 3/7/14, and win-back at day 21.','Built segmented cohort dashboards to monitor retention curves by acquisition channel and onboarding path.','Ran multivariate tests on subject lines, send timing, and CTA language across email and in-app channels.'],
+    outcome:'D30 retention increased from 18% to 24% (+34% relative lift). Feature adoption rates doubled within the first week for users in the new onboarding flow. The Day 7 re-engagement sequence showed the highest incremental impact.',
+    tags:['Retention','Email Automation','In-App Messaging','Cohort Analysis','Behavioral Triggers','LTV']
+  }
+};
+
+function openModal(id){
+  const d=M[id]; if(!d) return;
+  document.getElementById('mcontent').innerHTML=`
+    <div class="mlabel">${d.label}</div>
+    <div class="mtitle">${d.title}</div>
+    <div class="msub">${d.sub}</div>
+    <div class="mstats">${d.stats.map(s=>`<div class="mscard"><span class="msnum">${s.n}</span><span class="mslbl">${s.l}</span></div>`).join('')}</div>
+    <div class="msec"><div class="msec-t">Context</div><div class="mbody"><p>${d.ctx}</p></div></div>
+    <div class="msec"><div class="msec-t">Approach</div><ol class="msteps">${d.steps.map(s=>`<li>${s}</li>`).join('')}</ol></div>
+    <div class="msec"><div class="msec-t">Outcome</div><div class="mbody"><p>${d.outcome}</p></div></div>
+    <div class="msec"><div class="msec-t">Stack & Methods</div><div class="mtags">${d.tags.map(t=>`<span class="mtag">${t}</span>`).join('')}</div></div>
+  `;
+  document.getElementById('moverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('moverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeOut(e){ if(e.target===document.getElementById('moverlay')) closeModal(); }
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
+
+/* ── DARK MODE ── */
+function toggleTheme(){
+  const h=document.documentElement;
+  const dark=h.getAttribute('data-theme')==='dark';
+  h.setAttribute('data-theme',dark?'light':'dark');
+  localStorage.setItem('theme',dark?'light':'dark');
+}
+(()=>{ const s=localStorage.getItem('theme'); if(s) document.documentElement.setAttribute('data-theme',s); })();
+
+/* ── LANGUAGE ── */
+let lang='en';
+function toggleLang(){
+  lang=lang==='en'?'vi':'en';
+  document.getElementById('lang-toggle').textContent=lang==='en'?'VI':'EN';
+
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-en][data-vi]').forEach(el=>{
+    const v=el.getAttribute('data-'+lang); if(v) el.textContent=v;
+  });
+}
+
+/* ── SCROLL REVEAL ── */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+<style>
+  body {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
+  
+  /* Cho phép bôi đen riêng thẻ input, textarea để user nhập liệu nếu có */
+  input, textarea {
+    -webkit-user-select: auto;
+    user-select: auto;
+  }
+</style>
+
+<script>
+  // 1. Chặn click chuột phải (Context Menu)
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
+
+  // 2. Chặn các tổ hợp phím tắt (F12, Ctrl+U, Ctrl+C, Ctrl+Shift+I)
+  document.onkeydown = function(e) {
+    // Chặn F12 (Mở DevTools)
+    if (e.keyCode === 123) {
+      return false;
+    }
+    // Chặn Ctrl+C (Copy) và Ctrl+U (View Source)
+    if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 85)) {
+      return false;
+    }
+    // Chặn Ctrl+Shift+I (Mở Inspector) / Ctrl+Shift+J / Ctrl+Shift+C
+    if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) {
+      return false;
+    }
+    // Chặn Command+Option+I (Trên Mac)
+    if (e.metaKey && e.altKey && e.keyCode === 73) {
+      return false;
+    }
+  };
+</script>
+</body>
+</html>
