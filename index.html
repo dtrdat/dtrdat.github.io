@@ -3,82 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dang Tran Dat | AI Growth & Product Marketing</title>
+<title data-en="Dang Tran Dat | Digital Marketing Excutive" data-vi="Đặng Trần Đạt | Chuyên viên Digital Marketing">Dang Tran Dat | Digital Marketing Excutive</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-/* ── LIGHT TOKENS ── */
 :root {
-  --ink:#1a1a1a; --ink-2:#444; --ink-3:#888;
-  --rule:#d8d5cf; --paper:#fafaf8; --surface:#f4f2ee;
-  --accent:#1a3a6b; --accent-light:#e8edf5;
-  --serif:'Crimson Pro',Georgia,serif;
-  --sans:'DM Sans',system-ui,sans-serif;
-  --max:900px; --col-l:260px;
-  --ease:cubic-bezier(.22,1,.36,1);
+  --ink:#1a1a1a;--ink-2:#444;--ink-3:#888;
+  --rule:#d8d5cf;--paper:#fafaf8;--surface:#f4f2ee;
+  --accent:#1a3a6b;--accent-light:#e8edf5;
+  --serif:'Crimson Pro',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;
+  --max:900px;--col-l:260px;--ease:cubic-bezier(.22,1,.36,1);
 }
-/* ── DARK TOKENS ── */
-[data-theme="dark"] {
-  --ink:#edeae4; --ink-2:#b0ab9e; --ink-3:#6e6a62;
-  --rule:#2e2c28; --paper:#131210; --surface:#1c1a17;
-  --accent:#7da4d8; --accent-light:#1a2535;
+[data-theme="dark"]{
+  --ink:#edeae4;--ink-2:#b0ab9e;--ink-3:#6e6a62;
+  --rule:#2e2c28;--paper:#131210;--surface:#1c1a17;
+  --accent:#7da4d8;--accent-light:#1a2535;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:15px;line-height:1.65;transition:background .3s,color .3s;}
 
-/* ── SCROLL REVEAL ── */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s var(--ease),transform .55s var(--ease);}
 .reveal.visible{opacity:1;transform:none;}
-.d1{transition-delay:.08s;} .d2{transition-delay:.16s;} .d3{transition-delay:.24s;} .d4{transition-delay:.32s;}
+.d1{transition-delay:.08s;}.d2{transition-delay:.16s;}.d3{transition-delay:.24s;}.d4{transition-delay:.32s;}
 
-/* ── TOPBAR ── */
+/* TOPBAR */
 .topbar{border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:200;transition:background .3s,border-color .3s;}
 .topbar-inner{max-width:var(--max);margin:0 auto;padding:0 32px;height:52px;display:flex;align-items:center;justify-content:space-between;}
 .brand{font-family:var(--serif);font-size:17px;color:var(--ink);text-decoration:none;letter-spacing:.01em;}
-.tnav{display:flex;align-items:center;gap:18px;list-style:none;}
+.tnav{display:flex;align-items:center;gap:16px;list-style:none;}
 .tnav a{font-size:12px;font-weight:400;color:var(--ink-2);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .15s;}
 .tnav a:hover{color:var(--accent);}
 .nbtn{font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border:1px solid var(--rule);border-radius:2px;background:transparent;color:var(--ink-2);cursor:pointer;transition:all .15s;font-family:var(--sans);}
 .nbtn:hover{border-color:var(--accent);color:var(--accent);}
 .rbtn{background:var(--accent);color:var(--paper)!important;border-color:var(--accent)!important;padding:5px 14px;text-decoration:none;display:inline-flex;align-items:center;gap:5px;}
 .rbtn:hover{opacity:.85;}
-/* ── CHỈNH SỬA TOPBAR BUTTON (THEME TOGGLE) ── */
-.tbtn {
-  width: auto; /* Tự động co giãn để chứa 2 icon */
-  height: 32px;
-  padding: 0 8px; /* Khoảng cách viền 2 bên */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px; /* Khoảng cách giữa mặt trăng và mặt trời */
-  border: 1px solid var(--rule);
-  border-radius: 4px; /* Bo góc lớn hơn một chút giống ảnh mẫu */
-  background: transparent;
-  cursor: pointer;
-  transition: all .15s var(--ease);
-}
+.tbtn{width:32px;height:32px;padding:0;display:flex;align-items:center;justify-content:center;border:1px solid var(--rule);border-radius:2px;background:transparent;cursor:pointer;transition:all .15s;}
+.tbtn:hover{border-color:var(--accent);}
+.i-sun{display:none;}.i-moon{display:block;}
+[data-theme="dark"] .i-sun{display:block;}[data-theme="dark"] .i-moon{display:none;}
 
-.tbtn:hover {
-  border-color: var(--accent);
-}
-
-.tbtn svg {
-  display: block;
-  transition: opacity 0.2s ease, stroke 0.2s ease;
-}
-
-/* Giao diện Sáng (Light Mode): Mặt trời sáng, Mặt trăng mờ */
-.i-sun { opacity: 1; stroke: var(--ink); }
-.i-moon { opacity: 0.3; stroke: var(--ink-2); }
-
-/* Giao diện Tối (Dark Mode): Mặt trăng sáng, Mặt trời mờ */
-[data-theme="dark"] .i-sun { opacity: 0.3; stroke: var(--ink-2); }
-[data-theme="dark"] .i-moon { opacity: 1; stroke: var(--accent); /* Nhấn màu accent cho mặt trăng */ }
-/* ── PAGE ── */
+/* PAGE */
 .page{max-width:var(--max);margin:0 auto;padding:0 32px 80px;}
 
-/* ── PROFILE ── */
+/* PROFILE */
 .prof-sec{padding:56px 0 40px;border-bottom:1px solid var(--rule);}
 .pgrid{display:grid;grid-template-columns:var(--col-l) 1fr;gap:48px;align-items:start;}
 .av-wrap{display:flex;flex-direction:column;align-items:flex-start;gap:16px;}
@@ -95,89 +63,96 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:
 .crow{display:flex;flex-wrap:wrap;gap:20px;font-size:13px;color:var(--ink-3);}
 .crow a{color:var(--accent);text-decoration:none;}
 .crow a:hover{text-decoration:underline;}
-.citem{line-height: 1; align-items: end;}
+.citem{display:flex;align-items:center;gap:6px;}
 
-/* ── BODY GRID ── */
+/* BODY */
 .bgrid{display:grid;grid-template-columns:var(--col-l) 1fr;gap:48px;padding-top:40px;align-items:start;}
-
-/* ── SEC LABEL ── */
 .slabel{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--rule);transition:border-color .3s;}
 
-/* ── SIDEBAR ── */
+/* SIDEBAR */
 .sblock{margin-bottom:32px;}
 .slist{list-style:none;font-size:13.5px;color:var(--ink-2);}
 .slist li{padding:5px 0;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;gap:8px;transition:border-color .3s;}
 .slist li:last-child{border-bottom:none;}
 .tlbl{font-size:11px;color:var(--ink-3);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;}
-.edu-deg{font-weight:500;font-size:13.5px;color:var(--ink);}
-.edu-sch{font-size:13px;color:var(--ink-2);}
-.edu-yr{font-size:12px;color:var(--ink-3);}
+/* Education card */ 
+.edu-card { background: var(--surface); border: 1px solid var(--rule); border-radius: 2px; padding: 18px; transition: background 0.4s; } 
+.edu-degree { font-family: var(--serif); font-size: 15.5px; font-weight: 600; color: var(--ink); margin-bottom: 5px; line-height: 1.3; } 
+.edu-school { font-family: var(--body); font-size: 13px; color: var(--ink-2); margin-bottom: 10px; line-height: 1.45; } 
+.edu-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; } 
+.edu-year { font-family: var(--sans); font-size: 10px; color: var(--ink-3); letter-spacing: 0.04em; } 
+.gpa-badge{display:inline-block;font-size:11px;font-weight:500;letter-spacing:.04em;padding:3px 8px;background:var(--accent-light);color:var(--accent);border-radius:2px;text-transform:uppercase;margin-top:4px;}
 
-/* ── PROJECTS ── */
+/* EXPERIENCE */
+.exp-list{display:flex;flex-direction:column;}
+.exp-item{padding:20px 0;border-bottom:1px solid var(--rule);transition:border-color .3s;}
+.exp-item:first-child{padding-top:0;}
+.exp-item:last-child{border-bottom:none;}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:4px;}
+.exp-company{font-family:var(--serif);font-size:17px;font-weight:600;color:var(--ink);line-height:1.3;}
+.exp-period{font-size:11px;color:var(--ink-3);letter-spacing:.04em;white-space:nowrap;padding-top:3px;}
+.exp-role{font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+.exp-bullets{list-style:none;padding:0;}
+.exp-bullets li{font-size:13.5px;color:var(--ink-2);line-height:1.65;padding:3px 0 3px 14px;position:relative;}
+.exp-bullets li::before{content:'—';position:absolute;left:0;color:var(--ink-3);font-size:11px;top:5px;}
+
+/* PROJECTS */
 .plist{display:flex;flex-direction:column;}
-.pitem{padding:22px 0;border-bottom:1px solid var(--rule);transition:border-color .3s;}
+.pitem{padding:20px 0;border-bottom:1px solid var(--rule);transition:border-color .3s;}
 .pitem:first-child{padding-top:0;}
 .pitem:last-child{border-bottom:none;}
-.pnum{font-size:11px;font-weight:500;letter-spacing:.08em;color:var(--ink-3);text-transform:uppercase;margin-bottom:6px;}
-.ptitle{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--ink);margin-bottom:6px;line-height:1.3;}
-.pdesc{font-size:14px;color:var(--ink-2);line-height:1.65;margin-bottom:12px;max-width:480px;}
-.ptags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+.pnum{font-size:11px;font-weight:500;letter-spacing:.08em;color:var(--ink-3);text-transform:uppercase;margin-bottom:5px;}
+.ptitle{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--ink);margin-bottom:5px;line-height:1.3;}
+.pdesc{font-size:13.5px;color:var(--ink-2);line-height:1.65;margin-bottom:11px;max-width:480px;}
+.ptags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
 .ptag{font-size:11px;letter-spacing:.04em;padding:3px 8px;background:var(--accent-light);color:var(--accent);border-radius:2px;text-transform:uppercase;transition:background .3s;}
 .dbtn{font-size:12px;font-weight:500;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;font-family:var(--sans);display:inline-flex;align-items:center;gap:4px;text-decoration:underline;text-underline-offset:3px;text-decoration-color:transparent;transition:text-decoration-color .15s;}
 .dbtn:hover{text-decoration-color:var(--accent);}
 
-/* ── CASE STUDIES ── */
-.clist{display:flex;flex-direction:column;}
-.citem{padding:20px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:16px;align-items:end;transition:border-color .3s;}
-.citem:first-child{padding-top:0;}
-.citem:last-child{border-bottom:none;}
-.ctitle{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--ink);margin-bottom:5px;line-height:1.3;}
-.cdesc{font-size:13.5px;color:var(--ink-2);line-height:1.65;}
-.cdbtn{font-size:12px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-top:8px;display:inline-flex;align-items:center;gap:4px;font-family:var(--sans);text-decoration:underline;text-underline-offset:3px;text-decoration-color:transparent;transition:text-decoration-color .15s;}
-.cdbtn:hover{text-decoration-color:var(--accent);}
-.cstat{text-align:right;white-space:nowrap;}
-.snum{font-family:var(--serif);font-size:28px;font-weight:600;color:var(--accent);line-height:1;display:block;}
-.slbl2{font-size:11px;color:var(--ink-3);letter-spacing:.04em;text-transform:uppercase;}
+/* ACHIEVEMENTS */
+.ach-list{list-style:none;}
+.ach-list li{font-size:13px;color:var(--ink-2);line-height:1.65;padding:5px 0 5px 14px;border-bottom:1px solid var(--rule);position:relative;}
+.ach-list li:last-child{border-bottom:none;}
+.ach-list li::before{content:'·';position:absolute;left:2px;color:var(--accent);font-size:16px;top:3px;}
 
-/* ── MODAL ── */
+/* MODAL */
 .moverlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:900;display:flex;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .25s;}
 .moverlay.open{opacity:1;pointer-events:all;}
 .mbox{background:var(--paper);border:1px solid var(--rule);border-radius:6px;max-width:680px;width:100%;padding:40px 44px;position:relative;transform:translateY(20px);transition:transform .3s var(--ease),background .3s,border-color .3s;}
 .moverlay.open .mbox{transform:none;}
 .mclose{position:absolute;top:18px;right:20px;background:none;border:none;cursor:pointer;color:var(--ink-3);font-size:22px;line-height:1;padding:4px 8px;border-radius:2px;transition:color .15s,background .15s;}
 .mclose:hover{color:var(--ink);background:var(--surface);}
-.mlabel{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px;}
-.mtitle{font-family:var(--serif);font-size:28px;font-weight:600;color:var(--ink);line-height:1.25;margin-bottom:6px;}
-.msub{font-size:14px;color:var(--ink-3);margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--rule);}
-.mstats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px;}
-.mscard{background:var(--surface);border-radius:4px;padding:14px 16px;text-align:center;transition:background .3s;}
-.msnum{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--accent);display:block;line-height:1;margin-bottom:4px;}
+.mlabel{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px;}
+.mtitle{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--ink);line-height:1.25;margin-bottom:5px;}
+.msub{font-size:13.5px;color:var(--ink-3);margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--rule);}
+.mstats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:26px;}
+.mscard{background:var(--surface);border-radius:4px;padding:12px 14px;text-align:center;transition:background .3s;}
+.msnum{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--accent);display:block;line-height:1;margin-bottom:4px;}
 .mslbl{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);}
-.msec{margin-bottom:22px;}
+.msec{margin-bottom:20px;}
 .msec-t{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px;}
-.mbody{font-size:14.5px;color:var(--ink-2);line-height:1.75;}
+.mbody{font-size:14px;color:var(--ink-2);line-height:1.75;}
 .mbody p{margin-bottom:10px;}
 .mbody p:last-child{margin-bottom:0;}
 .msteps{list-style:none;counter-reset:steps;}
-.msteps li{counter-increment:steps;display:flex;gap:14px;padding:10px 0;border-bottom:1px solid var(--rule);font-size:14px;color:var(--ink-2);line-height:1.6;}
+.msteps li{counter-increment:steps;display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--rule);font-size:13.5px;color:var(--ink-2);line-height:1.6;}
 .msteps li:last-child{border-bottom:none;}
-.msteps li::before{content:counter(steps,decimal-leading-zero);font-size:12px;font-weight:500;color:var(--accent);min-width:24px;padding-top:1px;letter-spacing:.04em;}
+.msteps li::before{content:counter(steps,decimal-leading-zero);font-size:12px;font-weight:500;color:var(--accent);min-width:22px;padding-top:1px;letter-spacing:.04em;}
 .mtags{display:flex;flex-wrap:wrap;gap:6px;}
 .mtag{font-size:11px;letter-spacing:.04em;padding:4px 10px;background:var(--accent-light);color:var(--accent);border-radius:2px;text-transform:uppercase;transition:background .3s;}
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer{border-top:1px solid var(--rule);padding:28px 32px;max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--ink-3);transition:border-color .3s;}
 footer a{color:var(--accent);text-decoration:none;}
 footer a:hover{text-decoration:underline;}
 
-/* ── RESPONSIVE ── */
+/* RESPONSIVE */
 @media(max-width:700px){
   .topbar-inner,.page{padding-left:20px;padding-right:20px;}
   .hs{display:none;}
   .pgrid,.bgrid{grid-template-columns:1fr;gap:28px;}
   .av-wrap{flex-direction:row;align-items:center;}
-  .citem{grid-template-columns:1fr;}
-  .cstat{text-align:left;}
+  .exp-header{flex-direction:column;gap:4px;}
   .mbox{padding:28px 22px;}
   .mstats{grid-template-columns:repeat(2,1fr);}
   footer{flex-direction:column;gap:8px;text-align:center;padding:20px;}
@@ -192,12 +167,12 @@ footer a:hover{text-decoration:underline;}
     <a class="brand" href="#">Đặng Trần Đạt</a>
     <ul class="tnav">
       <li class="hs"><a href="#profile" data-en="Home" data-vi="Trang chủ">Home</a></li>
+      <li class="hs"><a href="#experience" data-en="Experience" data-vi="Kinh nghiệm">Experience</a></li>
       <li class="hs"><a href="#projects" data-en="Projects" data-vi="Dự án">Projects</a></li>
-      <li class="hs"><a href="#cases" data-en="Case Studies" data-vi="Nghiên cứu">Case Studies</a></li>
+      <li class="hs"><a href="#achievements" data-en="Awards" data-vi="Thành tích">Awards</a></li>
       <li>
-        <!-- ★ REPLACE href with your Google Drive PDF share link ★ -->
         <a class="nbtn rbtn" href="YOUR_GOOGLE_DRIVE_PDF_LINK_HERE" target="_blank" rel="noopener"
-           data-en="↓ Résumé" data-vi="↓ Hồ sơ">↓ Résumé</a>
+           data-en="↓ Résumé" data-vi="↓ Hồ sơ">↓ CV</a>
       </li>
       <li><button class="nbtn" id="lang-toggle" onclick="toggleLang()">VI</button></li>
       <li>
@@ -226,31 +201,43 @@ footer a:hover{text-decoration:underline;}
       <div class="av-wrap">
         <img src="avt.png" class="avatar" alt="Đặng Trần Đạt" />
         <div class="av-meta">
-          <span>Hanoi, Vietnam</span><br>
-          <a href="mailto:your@email.com">dtrdat.work@gmail.com</a>
+          <span>Hà Nội, Việt Nam</span><br>
+          <a href="mailto:dtrdat.work@gmail.com">dtrdat.work@gmail.com</a>
+          <a href="tel:0362305210">0362 305 210</a>
           <a href="https://zalo.me/0362305210" target="_blank">Zalo ↗</a>
-          <a href="https://github.com/yourprofile" target="_blank">GitHub ↗</a>
+          <a href="https://dtrdat.github.io/" target="_blank">dtrdat.github.io ↗</a>
         </div>
       </div>
       <div>
-        <h1 class="prof-h1">Đặng Trần <em>Đạt</em></h1>
-        <div class="role" data-en="AI Growth & Product Marketing Specialist" data-vi="Chuyên gia AI Growth & Product Marketing">AI Growth &amp; Product Marketing Specialist</div>
-        <p class="bio" data-en="I design and build AI-powered marketing systems that acquire, activate, and retain users — bridging strategic frameworks with technical execution." data-vi="Tôi thiết kế và xây dựng các hệ thống marketing ứng dụng AI để thu hút, kích hoạt và giữ chân người dùng — kết nối tư duy chiến lược với khả năng thực thi kỹ thuật.">
-          I design and build AI-powered marketing systems that acquire, activate, and retain users — bridging strategic frameworks with technical execution.
+        <h1 class="prof-h1"
+            data-en="Dang Tran Dat"
+            data-vi="Đặng Trần Đạt">
+            Dang Tran <em>Dat</em></h1>
+        <div class="role"
+          data-en="Digital Marketing Executive"
+          data-vi="Chuyên viên Digital Marketing">
+          Digital Marketing Executive
+        </div>
+        <p class="bio"
+          data-en="I aim to become a Growth Marketer, focusing on building growth systems based on websites, SEO, data and automation.  I have implemented projects from website design, SEO content optimization to online marketing operations, with a focus on optimizing conversion and long-term effectiveness.  With a Digital Economy platform, I aim to combine data and AI to build marketing systems that are measurable, optimized and scalable."
+          data-vi="Tôi định hướng trở thành Growth Marketer, tập trung xây dựng các hệ thống tăng trưởng dựa trên website, SEO, dữ liệu và automation. Tôi đã triển khai các dự án từ thiết kế website, tối ưu nội dung SEO đến vận hành marketing online, với trọng tâm là tối ưu conversion và hiệu quả dài hạn. Với nền tảng Kinh tế số, tôi hướng tới kết hợp dữ liệu và AI để xây dựng các hệ thống marketing có thể đo lường, tối ưu và mở rộng.">
+          I aim to become a Growth Marketer, focusing on building growth systems based on websites, SEO, data and automation.  I have implemented projects from website design, SEO content optimization to online marketing operations, with a focus on optimizing conversion and long-term effectiveness.  With a Digital Economy platform, I aim to combine data and AI to build marketing systems that are measurable, optimized and scalable.
         </p>
         <div class="tags">
-          <span class="tag">AI Growth</span><span class="tag">Product Marketing</span>
-          <span class="tag">Marketing Automation</span><span class="tag">Performance Analytics</span>
+          <span class="tag">Website &amp; MarTech</span>
+          <span class="tag">SEO &amp; Content</span>
+          <span class="tag">AI-Assisted Marketing</span>
+          <span class="tag">CRO &amp; Funnel</span>
           <span class="tag">Digital Economics</span>
         </div>
         <div class="crow">
           <span class="citem">
             <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="14" height="10" rx="1.5"/><polyline points="1,3 8,9.5 15,3"/></svg>
-            <a href="mailto:your@email.com">your@email.com</a>
+            <a href="mailto:dtrdat.work@gmail.com">dtrdat.work@gmail.com</a>
           </span>
           <span class="citem">
             <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="7" r="2.5"/><path d="M8 1a6 6 0 016 6c0 4-6 8-6 8S2 11 2 7a6 6 0 016-6z"/></svg>
-            <span>Hanoi, Vietnam</span>
+            <span>Hà Nội, Việt Nam</span>
           </span>
         </div>
       </div>
@@ -262,50 +249,131 @@ footer a:hover{text-decoration:underline;}
 
     <!-- SIDEBAR -->
     <aside>
+
       <div class="sblock reveal d1">
         <div class="slabel" data-en="Education" data-vi="Học vấn">Education</div>
-        <div style="margin-bottom:14px;">
-          <div class="edu-deg" data-en="B.Sc. Digital Economics" data-vi="Cử nhân Kinh tế Số">B.Sc. Digital Economics</div>
-          <div class="edu-sch" data-en="[Your University]" data-vi="[Trường đại học của bạn]">[Your University]</div>
-          <div class="edu-yr">2023 – 2027</div>
+        <div class="edu-card">
+          <div class="edu-degree" data-en="B.Sc. Digital Economics" data-vi="Cử nhân Kinh tế Số">B.Sc. Digital Economics</div>
+          <div class="edu-school" data-en="Academy of Policy and Development (APD)" data-vi="Học viện Chính sách và Phát triển (APD)">Academy of Policy and Development (APD)</div>
+          <div class="edu-footer">
+            <span class="edu-year">2022 – 2026</span>
+            <span class="gpa-badge">GPA 3.67 / 4.0</span>
+          </div>
         </div>
       </div>
 
       <div class="sblock reveal d2">
-        <div class="slabel" data-en="Core Competencies" data-vi="Năng lực cốt lõi">Core Competencies</div>
+        <div class="slabel" data-en="Core Skills" data-vi="Kỹ năng chuyên môn">Core Skills</div>
         <ul class="slist">
-          <li><span data-en="Growth Strategy" data-vi="Chiến lược tăng trưởng">Growth Strategy</span><span class="tlbl">Strategy</span></li>
-          <li><span data-en="AI/ML Integration" data-vi="Tích hợp AI/ML">AI/ML Integration</span><span class="tlbl">Technical</span></li>
-          <li><span data-en="Marketing Analytics" data-vi="Phân tích Marketing">Marketing Analytics</span><span class="tlbl">Data</span></li>
-          <li><span data-en="Content Automation" data-vi="Tự động hóa nội dung">Content Automation</span><span class="tlbl">Exec</span></li>
-          <li><span data-en="Funnel Optimization" data-vi="Tối ưu phễu">Funnel Optimization</span><span class="tlbl">CRO</span></li>
-          <li><span>Python / SQL</span><span class="tlbl">Dev</span></li>
+          <li><span data-en="WordPress Development" data-vi="Xây dựng website WordPress">WordPress Dev</span><span class="tlbl">MarTech</span></li>
+          <li><span data-en="SEO Onpage & Content" data-vi="SEO Onpage & Content">SEO &amp; Content</span><span class="tlbl">Traffic</span></li>
+          <li><span data-en="Email Automation" data-vi="Tự động hóa Email">Email Automation</span><span class="tlbl">CRM</span></li>
+          <li><span data-en="GA4 & Analytics" data-vi="GA4 & Phân tích dữ liệu">GA4 &amp; Analytics</span><span class="tlbl">Data</span></li>
+          <li><span data-en="Facebook & Google Ads" data-vi="Quảng cáo Facebook & Google">Ads Management</span><span class="tlbl">Paid</span></li>
+          <li><span>Python / HTML / CSS / JS</span><span class="tlbl">Dev</span></li>
         </ul>
       </div>
 
       <div class="sblock reveal d3">
-        <div class="slabel" data-en="Tools & Stack" data-vi="Công cụ & Nền tảng">Tools &amp; Stack</div>
+        <div class="slabel" data-en="Tools" data-vi="Công cụ">Tools</div>
         <ul class="slist">
-          <li><span>Google Analytics 4</span></li>
-          <li><span>Meta Ads / Google Ads</span></li>
-          <li><span>Make / n8n</span></li>
-          <li><span>Notion / Airtable</span></li>
-          <li><span>OpenAI API</span></li>
-          <li><span>Webflow / HTML+CSS</span></li>
+          <li><span>WordPress, Elementor</span></li>
+          <li><span>RankMath SEO, SEMrush</span></li>
+          <li><span>FluentCRM, Make.com</span></li>
+          <li><span>GA4, GSC, GTM</span></li>
+          <li><span>Facebook Ads, Google Ads</span></li>
+          <li><span>Canva, AI Content Tools</span></li>
+          <li><span>Python, GitHub</span></li>
+        </ul>
+      </div>
+
+      <div class="sblock reveal d4">
+        <div class="slabel" data-en="Certifications" data-vi="Chứng chỉ">Certifications</div>
+        <ul class="slist">
+          <li><span>SEO Essentials – SEMrush</span><span class="tlbl">2025</span></li>
+          <li><span>Data Foundations – Google</span><span class="tlbl">2025</span></li>
+          <li><span>Tableau Dashboards – Coursera</span><span class="tlbl">2024</span></li>
+          <li><span>Project Management – Google</span><span class="tlbl">2023</span></li>
+          <li><span>Digital Marketing – Google</span><span class="tlbl">2023</span></li>
+          <li><span>ICDL Excel 94 / Word 94</span><span class="tlbl">2025</span></li>
         </ul>
       </div>
 
       <div class="sblock reveal d4">
         <div class="slabel" data-en="Languages" data-vi="Ngôn ngữ">Languages</div>
         <ul class="slist">
-          <li><span data-en="Vietnamese" data-vi="Tiếng Việt">Vietnamese</span><span class="tlbl" data-en="Native" data-vi="Bản ngữ">Native</span></li>
-          <li><span data-en="English" data-vi="Tiếng Anh">English</span><span class="tlbl">B2+</span></li>
+          <li><span data-en="Vietnamese" data-vi="Tiếng Việt">Vietnamese</span>
+          <li><span data-en="English" data-vi="Tiếng Anh">English</span>
         </ul>
       </div>
+
     </aside>
 
-    <!-- MAIN -->
+    <!-- MAIN CONTENT -->
     <main>
+
+      <!-- EXPERIENCE -->
+      <section id="experience" style="margin-bottom:48px;">
+        <div class="slabel reveal" data-en="Work Experience" data-vi="Kinh nghiệm làm việc">Work Experience</div>
+        <div class="exp-list">
+
+          <div class="exp-item reveal">
+            <div class="exp-header">
+              <div class="exp-company">BKG SMART</div>
+              <div class="exp-period">10/2025 – 03/2026</div>
+            </div>
+            <div class="exp-role"
+              data-en="Digital Marketing Specialist · bkgsmart.com.vn"
+              data-vi="Chuyên viên Digital Marketing · bkgsmart.com.vn">
+              Digital Marketing Specialist
+            </div>
+            <ul class="exp-bullets">
+              <li data-en="Managed and optimized website + landing page system to improve UX and increase lead conversion rate." data-vi="Quản trị và tối ưu hệ thống website, landing page marketing, cải thiện UX và tăng tỷ lệ chuyển đổi sang lead.">Managed and optimized website + landing page system to improve UX and increase lead conversion rate.</li>
+              <li data-en="Built SEO content strategy combined with product image design for brand awareness campaigns." data-vi="Xây dựng chiến lược nội dung chuẩn SEO kết hợp thiết kế hình ảnh sản phẩm cho chiến dịch tăng nhận diện thương hiệu.">Built SEO content strategy combined with product image design for brand awareness campaigns.</li>
+              <li data-en="Collaborated on B2B and B2C advertising campaigns to acquire qualified leads." data-vi="Phối hợp triển khai chiến dịch quảng cáo B2B và B2C để thu hút khách hàng tiềm năng.">Collaborated on B2B and B2C advertising campaigns to acquire qualified leads.</li>
+            </ul>
+            <div class="ptags"><span class="ptag">bkgsmart.com.vn</span><span class="ptag">huge-germany.com</span><span class="ptag">hugevietnam.vn</span><span class="ptag">vinger.com.vn</span></div>
+
+          </div>
+
+          <div class="exp-item reveal d1">
+            <div class="exp-header">
+              <div class="exp-company">Viet Nam DX Group</div>
+              <div class="exp-period">03/2025 – 09/2025</div>
+            </div>
+            <div class="exp-role"
+              data-en="MarTech Executive"
+              data-vi="Nhân viên Digital Marketing">
+              MarTech Executive
+            </div>
+            <ul class="exp-bullets">
+              <li data-en="Built and deployed a full MarTech ecosystem: website, SEO, content marketing, email marketing, and social media for inbound lead generation." data-vi="Xây dựng và triển khai hệ sinh thái MarTech: website, SEO, content, email marketing, social media phục vụ inbound marketing.">Built and deployed a full MarTech ecosystem: website, SEO, content marketing, email marketing, and social media for inbound lead generation.</li>
+              <li data-en="Designed, developed, and operated 3 strategic websites for branding, service delivery, and training purposes." data-vi="Thiết kế, phát triển và vận hành 3 website chiến lược phục vụ branding, cung cấp dịch vụ và đào tạo.">Designed, developed, and operated 3 strategic websites for branding, service delivery, and training purposes.</li>
+              <li data-en="Planned and executed inbound marketing strategy focusing on SEO content and email automation to attract and nurture leads." data-vi="Lập kế hoạch và triển khai chiến lược inbound marketing tập trung vào SEO content và email automation.">Planned and executed inbound marketing strategy focusing on SEO content and email automation to attract and nurture leads.</li>
+            </ul>
+            <div class="ptags"><span class="ptag">vietnamdxgroup.com </span></div>
+          </div>
+
+          <div class="exp-item reveal d2">
+            <div class="exp-header">
+              <div class="exp-company">Thành Nguyễn Hair Salon</div>
+              <div class="exp-period">06/2024 – 03/2025</div>
+            </div>
+            <div class="exp-role"
+              data-en="Freelance Digital Marketing"
+              data-vi="Freelancer Digital Marketing">
+              Freelance Digital Marketing ·  | greenhands.vn
+            </div>
+            <ul class="exp-bullets">
+              <li data-en="Designed and developed an online booking website, optimized UX/UI for mobile-first experience." data-vi="Thiết kế và phát triển website đặt lịch trực tuyến, tối ưu UX/UI trên mobile.">Designed and developed an online booking website, optimized UX/UI for mobile-first experience.</li>
+              <li data-en="Built service content and blog, optimized SEO Onpage with RankMath to improve Google search visibility." data-vi="Xây dựng nội dung dịch vụ và blog, tối ưu SEO Onpage bằng RankMath để cải thiện khả năng hiển thị trên Google.">Built service content and blog, optimized SEO Onpage with RankMath to improve Google search visibility.</li>
+              <li data-en="Increased online bookings by 35% within 2 months after launching the website and content strategy." data-vi="Tăng 35% số lượt đặt lịch online sau 2 tháng triển khai website và chiến lược nội dung.">+35% online bookings within 2 months of launching the website and content strategy.</li>
+            </ul>
+            <div class="ptags"><span class="ptag">thanhnguyenhairsalon.vn</span> <span class="ptag">greenhands.vn</span></div>
+          </div>
+
+        </div>
+      </section>
 
       <!-- PROJECTS -->
       <section id="projects" style="margin-bottom:48px;">
@@ -313,77 +381,85 @@ footer a:hover{text-decoration:underline;}
         <div class="plist">
 
           <div class="pitem reveal">
-            <div class="pnum" data-en="Project 01" data-vi="Dự án 01">Project 01</div>
-            <div class="ptitle" data-en="AI Content Automation System" data-vi="Hệ thống Tự động hóa Nội dung bằng AI">AI Content Automation System</div>
-            <p class="pdesc" data-en="Built an end-to-end pipeline that generates, scores, and publishes SEO-optimized content at scale using GPT-4 and Make.com. Reduced manual content production time by 70%." data-vi="Xây dựng hệ thống đầu cuối tự động tạo, đánh giá và xuất bản nội dung SEO theo quy mô lớn sử dụng GPT-4 và Make.com. Giảm 70% thời gian sản xuất nội dung thủ công.">
-              Built an end-to-end pipeline that generates, scores, and publishes SEO-optimized content at scale using GPT-4 and Make.com. Reduced manual content production time by 70%.
+            <div class="pnum" data-en="Graduation Project" data-vi="Đồ án tốt nghiệp">Graduation Project</div>
+            <div class="ptitle"
+              data-en="NiBiGo — Ninh Bình Digital Tourism Ecosystem"
+              data-vi="NiBiGo — Hệ sinh thái du lịch số Ninh Bình">
+              NiBiGo — Ninh Bình Digital Tourism Ecosystem
+            </div>
+            <p class="pdesc"
+              data-en="Built a full digital tourism platform integrating AI Chatbot for travel consulting, 360° interactive maps for virtual experience, and an E-commerce system — digitizing the entire customer journey from search to transaction on a single platform."
+              data-vi="Xây dựng nền tảng du lịch số tích hợp AI Chatbot tư vấn, Bản đồ 360° trải nghiệm thực tế ảo và hệ thống E-commerce — số hóa toàn bộ hành trình khách hàng từ tìm kiếm đến giao dịch trên một nền tảng.">
+              Built a full digital tourism platform integrating AI Chatbot for travel consulting, 360° interactive maps for virtual experience, and an E-commerce system — digitizing the entire customer journey from search to transaction on a single platform.
             </p>
-            <div class="ptags"><span class="ptag">GPT-4</span><span class="ptag">Make.com</span><span class="ptag">SEO</span><span class="ptag">Automation</span></div>
-            <button class="dbtn" onclick="openModal('p1')" data-en="View full case study →" data-vi="Xem chi tiết →">View full case study →</button>
+            <div class="ptags"><span class="ptag">AI Chatbot</span><span class="ptag">360° Maps</span><span class="ptag">E-commerce</span><span class="ptag">WordPress</span></div>
+            <button class="dbtn" onclick="openModal('p1')" data-en="View project details →" data-vi="Xem chi tiết →">View project details →</button>
           </div>
 
           <div class="pitem reveal d1">
-            <div class="pnum" data-en="Project 02" data-vi="Dự án 02">Project 02</div>
-            <div class="ptitle" data-en="Full-Funnel Marketing Intelligence Dashboard" data-vi="Dashboard Phân tích Toàn phễu Marketing">Full-Funnel Marketing Intelligence Dashboard</div>
-            <p class="pdesc" data-en="Designed a unified analytics dashboard integrating GA4, Meta Ads, and CRM data. Enabled real-time attribution modeling and cohort analysis for performance decision-making." data-vi="Xây dựng dashboard phân tích hợp nhất tích hợp GA4, Meta Ads và dữ liệu CRM. Cho phép mô hình hóa phân bổ theo thời gian thực và phân tích cohort để hỗ trợ quyết định hiệu suất.">
-              Designed a unified analytics dashboard integrating GA4, Meta Ads, and CRM data. Enabled real-time attribution modeling and cohort analysis for performance decision-making.
+            <div class="pnum" data-en="Client Project · 2024" data-vi="Dự án khách hàng · 2024">Client Project · 2024</div>
+            <div class="ptitle"
+              data-en="Lavana Cosmetics — CRO-Focused Website"
+              data-vi="Lavana Cosmetics — Website tối ưu CRO">
+              Lavana Cosmetics — CRO-Focused Website
+            </div>
+            <p class="pdesc"
+              data-en="Designed a cosmetics website structured around the TOFU–MOFU–BOFU conversion framework. Built a complete customer journey with optimized CTAs at each funnel stage to maximize lead-to-sale rate."
+              data-vi="Thiết kế website mỹ phẩm theo framework chuyển đổi TOFU–MOFU–BOFU. Xây dựng hành trình khách hàng hoàn chỉnh với CTA tối ưu tại mỗi giai đoạn phễu để tối đa hóa tỷ lệ chuyển đổi.">
+              Designed a cosmetics website structured around the TOFU–MOFU–BOFU conversion framework. Built a complete customer journey with optimized CTAs at each funnel stage to maximize lead-to-sale rate.
             </p>
-            <div class="ptags"><span class="ptag">GA4</span><span class="ptag">Python</span><span class="ptag">Attribution</span><span class="ptag">BI</span></div>
-            <button class="dbtn" onclick="openModal('p2')" data-en="View full case study →" data-vi="Xem chi tiết →">View full case study →</button>
+            <div class="ptags"><span class="ptag">CRO</span><span class="ptag">WordPress</span><span class="ptag">Funnel Design</span><span class="ptag">UX</span></div>
+            <button class="dbtn" onclick="openModal('p2')" data-en="View project details →" data-vi="Xem chi tiết →">View project details →</button>
           </div>
 
           <div class="pitem reveal d2">
-            <div class="pnum" data-en="Project 03" data-vi="Dự án 03">Project 03</div>
-            <div class="ptitle" data-en="AI Conversion Chatbot" data-vi="Chatbot AI Tối ưu Chuyển đổi">AI Conversion Chatbot</div>
-            <p class="pdesc" data-en="Deployed a context-aware chatbot on a landing page using the OpenAI API. Personalized responses based on user intent signals, increasing form submission rates by 22%." data-vi="Triển khai chatbot nhận thức ngữ cảnh trên landing page sử dụng OpenAI API. Phản hồi được cá nhân hóa dựa trên tín hiệu ý định người dùng, tăng tỷ lệ điền form 22%.">
-              Deployed a context-aware chatbot on a landing page using the OpenAI API. Personalized responses based on user intent signals, increasing form submission rates by 22%.
+            <div class="pnum" data-en="Client Project · 2024" data-vi="Dự án khách hàng · 2024">Client Project · 2024</div>
+            <div class="ptitle"
+              data-en="Francisco Beauty — SEO Blog & Email Funnel"
+              data-vi="Francisco Beauty — Blog SEO & Phễu Email">
+              Francisco Beauty — SEO Blog &amp; Email Funnel
+            </div>
+            <p class="pdesc"
+              data-en="Built a spa website with an SEO-structured skincare blog, integrated an ebook lead capture form, and set up a FluentCRM automated email nurture sequence to convert readers into clients."
+              data-vi="Xây dựng website spa với blog skincare chuẩn SEO, tích hợp form nhận ebook thu lead và thiết lập chuỗi email nurture tự động qua FluentCRM để chuyển đổi độc giả thành khách hàng.">
+              Built a spa website with an SEO-structured skincare blog, integrated an ebook lead capture form, and set up a FluentCRM automated email nurture sequence to convert readers into clients.
             </p>
-            <div class="ptags"><span class="ptag">OpenAI API</span><span class="ptag">JavaScript</span><span class="ptag">CRO</span></div>
-            <button class="dbtn" onclick="openModal('p3')" data-en="View full case study →" data-vi="Xem chi tiết →">View full case study →</button>
+            <div class="ptags"><span class="ptag">SEO</span><span class="ptag">FluentCRM</span><span class="ptag">Lead Capture</span><span class="ptag">Email Automation</span></div>
+            <button class="dbtn" onclick="openModal('p3')" data-en="View project details →" data-vi="Xem chi tiết →">View project details →</button>
+          </div>
+
+          <div class="pitem reveal d3">
+            <div class="pnum" data-en="Research · 2025" data-vi="Nghiên cứu · 2025">Research · 2025</div>
+            <div class="ptitle"
+              data-en="APDRoom+ — Student Housing Platform"
+              data-vi="APDRoom+ — Nền tảng kết nối chỗ ở sinh viên">
+              APDRoom+ — Student Housing Platform
+            </div>
+            <p class="pdesc"
+              data-en="Conceptualized and developed a platform connecting students with accommodation and living spaces. Involved product design, user journey mapping, and digital marketing strategy for student audience."
+              data-vi="Xây dựng nền tảng kết nối chỗ ở và không gian sống cho sinh viên. Bao gồm thiết kế sản phẩm, lập bản đồ hành trình người dùng và chiến lược marketing số cho đối tượng sinh viên.">
+              Conceptualized and developed a platform connecting students with accommodation and living spaces. Involved product design, user journey mapping, and digital marketing strategy for student audience.
+            </p>
+            <div class="ptags"><span class="ptag">Product Design</span><span class="ptag">User Research</span><span class="ptag">Digital Marketing</span></div>
+            <button class="dbtn" onclick="openModal('p4')" data-en="View project details →" data-vi="Xem chi tiết →">View project details →</button>
           </div>
 
         </div>
       </section>
 
-      <!-- CASE STUDIES -->
-      <section id="cases">
-        <div class="slabel reveal" data-en="Case Studies" data-vi="Nghiên cứu điển hình">Case Studies</div>
-        <div class="clist">
-
-          <div class="citem reveal">
-            <div>
-              <div class="ctitle" data-en="AI-Driven Ad Creative Testing" data-vi="Thử nghiệm Creative Quảng cáo bằng AI">AI-Driven Ad Creative Testing</div>
-              <p class="cdesc" data-en="Applied generative AI to produce 40+ ad copy variants. Ran structured A/B tests across Meta and Google Ads. Statistical significance achieved in 12 days instead of the typical 30." data-vi="Ứng dụng AI tạo sinh sản xuất 40+ biến thể copy quảng cáo. Thực hiện A/B test có cấu trúc trên Meta và Google Ads. Đạt mức ý nghĩa thống kê trong 12 ngày.">
-                Applied generative AI to produce 40+ ad copy variants. Ran structured A/B tests across Meta and Google Ads. Statistical significance achieved in 12 days instead of the typical 30.
-              </p>
-              <button class="cdbtn" onclick="openModal('c1')" data-en="Read full study →" data-vi="Xem nghiên cứu →">Read full study →</button>
-            </div>
-            <div class="cstat"><span class="snum">+20%</span><span class="slbl2">CTR</span></div>
-          </div>
-
-          <div class="citem reveal d1">
-            <div>
-              <div class="ctitle" data-en="Conversion Funnel Restructure" data-vi="Tái cấu trúc Phễu Chuyển đổi">Conversion Funnel Restructure</div>
-              <p class="cdesc" data-en="Conducted qualitative funnel audits using session recordings and heatmaps. Identified drop-off patterns at checkout. Redesigned UX flow and simplified messaging hierarchy." data-vi="Thực hiện kiểm toán phễu định tính sử dụng session recording và heatmap. Xác định mô hình thoát trang tại bước thanh toán. Thiết kế lại luồng UX và đơn giản hóa cấu trúc thông điệp.">
-                Conducted qualitative funnel audits using session recordings and heatmaps. Identified drop-off patterns at checkout. Redesigned UX flow and simplified messaging hierarchy.
-              </p>
-              <button class="cdbtn" onclick="openModal('c2')" data-en="Read full study →" data-vi="Xem nghiên cứu →">Read full study →</button>
-            </div>
-            <div class="cstat"><span class="snum">−15%</span><span class="slbl2">CPA</span></div>
-          </div>
-
-          <div class="citem reveal d2">
-            <div>
-              <div class="ctitle" data-en="Retention Loop Engineering" data-vi="Xây dựng Vòng lặp Giữ chân Người dùng">Retention Loop Engineering</div>
-              <p class="cdesc" data-en="Mapped user lifecycle stages and designed behavioral trigger sequences via email and in-app messaging. Leveraged cohort analysis to identify high-LTV user patterns." data-vi="Lập bản đồ các giai đoạn vòng đời người dùng và thiết kế chuỗi trigger hành vi qua email và in-app messaging. Phân tích cohort để xác định mô hình người dùng có LTV cao.">
-                Mapped user lifecycle stages and designed behavioral trigger sequences via email and in-app messaging. Leveraged cohort analysis to identify high-LTV user patterns.
-              </p>
-              <button class="cdbtn" onclick="openModal('c3')" data-en="Read full study →" data-vi="Xem nghiên cứu →">Read full study →</button>
-            </div>
-            <div class="cstat"><span class="snum">+34%</span><span class="slbl2" data-en="Retention D30" data-vi="Giữ chân D30">Retention D30</span></div>
-          </div>
-
-        </div>
+      <!-- ACHIEVEMENTS -->
+      <section id="achievements">
+        <div class="slabel reveal" data-en="Awards & Recognition" data-vi="Thành tích & Giải thưởng">Awards &amp; Recognition</div>
+        <ul class="ach-list reveal">
+          <li data-en="1st Place — Student Scientific Research, Faculty Level (2024–2025)" data-vi="Giải Nhất Nghiên cứu khoa học sinh viên cấp Khoa (2024–2025)">1st Place — Student Scientific Research, Faculty Level (2024–2025)</li>
+          <li data-en="3rd Place — Student Scientific Research, Academy Level (2024–2025)" data-vi="Giải Ba Nghiên cứu khoa học sinh viên cấp Học viện (2024–2025)">3rd Place — Student Scientific Research, Academy Level (2024–2025)</li>
+          <li data-en="2nd Place — Student Scientific Research, Faculty Level (2023–2024)" data-vi="Giải Nhì Nghiên cứu khoa học sinh viên cấp Khoa (2023–2024)">2nd Place — Student Scientific Research, Faculty Level (2023–2024)</li>
+          <li data-en="VECOM E-commerce Association Scholarship (2025)" data-vi="Học bổng Hiệp hội thương mại điện tử Việt Nam VECOM (2025)">VECOM E-commerce Association Scholarship (2025)</li>
+          <li data-en="Academic Excellence Scholarship — 3 semesters (Sem II 2023-2024 ; Sem I 2024-2025; Sem I 2025-2026)" data-vi="Học bổng khuyến khích học tập — 3 học kỳ (HKII 2023-2024 ; HKI 2024-2025; HKI 2025-2026)">Academic Excellence Scholarship — 3 semesters (Sem II 2023-2024 ; Sem I 2024-2025; Sem I 2025-2026)</li>
+          <li data-en="Outstanding Student of the Faculty of Digital Economics (2022–2023, 2023–2024, 2025-2026)" data-vi="Sinh viên xuất sắc Khoa Kinh tế số (2022–2023, 2023–2024, 2025-2026)">Outstanding Student of the Faculty of Digital Economics (2022–2023, 2023–2024, 2025-2026)</li>
+          <li data-en="Deputy Head of the Professional Committee - Member of the Faculty Executive Committee (2024–2025)" data-vi="Phó ban Chuyên môn - Ủy viên BCH Khoa (2024–2025)">Deputy Head of the Professional Committee - Member of the Faculty Executive Committee (2024–2025)</li>
+          <li data-en="Class President — KTKDS13 (2022–2025)" data-vi="Lớp trưởng lớp KTKDS13 (2022–2025)">Class President — KTKDS13 (2022–2025)</li>
+        </ul>
       </section>
 
     </main>
@@ -391,11 +467,11 @@ footer a:hover{text-decoration:underline;}
 </div>
 
 <footer>
-  <span>© 2026 Nguyen Thanh Dat</span>
+  <span>© 2026 Đặng Trần Đạt</span>
   <span>
-    <a href="mailto:your@email.com">your@email.com</a> &nbsp;·&nbsp;
-    <!-- ★ REPLACE href with your Google Drive PDF share link ★ -->
-    <a href="YOUR_GOOGLE_DRIVE_PDF_LINK_HERE" target="_blank" rel="noopener" data-en="Download Résumé ↓" data-vi="Tải hồ sơ ↓">Download Résumé ↓</a>
+    <a href="mailto:dtrdat.work@gmail.com">dtrdat.work@gmail.com</a> &nbsp;·&nbsp;
+    <a href="YOUR_GOOGLE_DRIVE_PDF_LINK_HERE" target="_blank" rel="noopener"
+       data-en="Download CV ↓" data-vi="Tải CV ↓">Download CV ↓</a>
   </span>
 </footer>
 
@@ -408,81 +484,189 @@ footer a:hover{text-decoration:underline;}
 </div>
 
 <script>
-/* ── MODAL DATA ── */
+/* MODAL DATA - BILINGUAL */
 const M = {
   p1:{
-    label:'Project 01',title:'AI Content Automation System',sub:'GPT-4 · Make.com · Webflow CMS · 2024',
-    stats:[{n:'−70%',l:'Production Time'},{n:'3×',l:'Content Output'},{n:'↑18%',l:'Organic Traffic'}],
-    ctx:'A growing D2C brand needed to scale its blog and social output without proportionally scaling headcount. The bottleneck was a 4-step manual content process: brief writing → drafting → SEO optimization → CMS publishing.',
-    steps:['Audited content production workflow to identify automation leverage points.','Designed a prompt architecture using GPT-4 that generates brand-consistent drafts from a keyword + intent input.','Built a scoring layer in Python to evaluate readability, keyword density, and tone alignment before publishing.','Automated CMS publishing via Make.com webhooks connected to Webflow CMS.','Implemented a human review gate for top-of-funnel content to maintain editorial standards.'],
-    outcome:'Manual writing time dropped by 70%. The team went from 4 articles/week to 12, with organic sessions increasing 18% within 60 days. Cost per published article dropped by 65%.',
-    tags:['GPT-4','Make.com','Python','SEO','Webflow CMS','Automation']
+    en:{
+      label:'Graduation Project',
+      title:'NiBiGo — Ninh Bình Digital Tourism Ecosystem',
+      sub:'WordPress · AI Chatbot · 360° Maps · E-commerce · 2025–2026',
+      stats:[{n:'3',l:'Core Modules'},{n:'360°',l:'Virtual Maps'},{n:'AI',l:'Chatbot Advisor'}],
+      ctx:'NiBiGo is a graduation project solving a real problem: Ninh Bình tourism remains fragmented, with scattered information and a disconnected customer journey. Goal: digitize the entire travel experience from discovery → booking → transaction on a single platform.',
+      steps:[
+        'Conducted user journey mapping from the discovery phase through post-trip experience.',
+        'Integrated AI Chatbot for real-time travel consulting, handling questions about destinations, itineraries, and local cuisine.',
+        'Built a 360° map system allowing virtual tours of locations before booking.',
+        'Developed an E-commerce system for booking tours, accommodations, and local experiences online.',
+        'Implemented SEO content strategy for destination pages to increase organic reach via Google.'
+      ],
+      outcome:'The project was highly appreciated and scored 9.8/10 points from the Thesis Grading Council with practical application. Demo platform at www.nibigo.io.vn — a prime example of integrating AI and digital technology into local tourism ecosystems.',
+      tags:['WordPress','AI Chatbot','360° Virtual Maps','E-commerce','SEO','UX Design'],
+      sec1:'Context',sec2:'Approach',sec3:'Outcome',sec4:'Stack & Methods'
+    },
+    vi:{
+      label:'Đồ án tốt nghiệp',
+      title:'NiBiGo — Hệ sinh thái du lịch số Ninh Bình',
+      sub:'WordPress · AI Chatbot · 360° Maps · E-commerce · 2025–2026',
+      stats:[{n:'3',l:'Core Modules'},{n:'360°',l:'Virtual Maps'},{n:'AI',l:'Chatbot Advisor'}],
+      ctx:'NiBiGo là đồ án tốt nghiệp nhằm giải quyết bài toán thực tế: du lịch Ninh Bình vẫn phân mảnh, thông tin rải rác và hành trình khách hàng thiếu liền mạch. Mục tiêu: số hóa toàn bộ trải nghiệm du lịch từ khám phá → đặt chỗ → giao dịch trên một nền tảng duy nhất.',
+      steps:[
+        'Nghiên cứu hành trình người dùng (user journey mapping) từ giai đoạn tìm kiếm điểm đến đến sau khi trở về.',
+        'Tích hợp AI Chatbot tư vấn du lịch thời gian thực, xử lý câu hỏi về địa điểm, lịch trình, ẩm thực.',
+        'Xây dựng hệ thống bản đồ 360° cho phép khách tham quan ảo các địa điểm trước khi đặt tour.',
+        'Phát triển hệ thống E-commerce để đặt tour, phòng nghỉ và trải nghiệm địa phương trực tuyến.',
+        'Xây dựng chiến lược SEO nội dung địa điểm để tăng khả năng tiếp cận khách du lịch qua Google.'
+      ],
+      outcome:'Dự án được đánh giá cao và đạt 9.8/10 điểm từ Hội đồng chấm Khóa luận với tính ứng dụng thực tiễn. Nền tảng demo tại www.nibigo.io.vn — là ví dụ điển hình về việc tích hợp AI và công nghệ số vào hệ sinh thái du lịch địa phương.',
+      tags:['WordPress','AI Chatbot','360° Virtual Maps','E-commerce','SEO','UX Design'],
+      sec1:'Bối cảnh',sec2:'Cách tiếp cận',sec3:'Kết quả',sec4:'Stack & Phương pháp'
+    }
   },
   p2:{
-    label:'Project 02',title:'Full-Funnel Marketing Intelligence Dashboard',sub:'GA4 · Meta Ads API · Python · Looker Studio · 2024',
-    stats:[{n:'4',l:'Data Sources'},{n:'−60%',l:'Reporting Time'},{n:'↑22%',l:'ROAS Clarity'}],
-    ctx:'A performance marketing team was operating with siloed data — Meta Ads, Google Ads, GA4, and CRM all existed in separate dashboards. Attribution decisions were made on incomplete views, leading to budget misallocation.',
-    steps:['Mapped the full data architecture: event taxonomy, UTM structure, conversion points, and CRM sync logic.','Built ETL scripts in Python to pull data from Meta Ads API, Google Ads API, and GA4 Data API on a daily schedule.','Modeled a unified attribution table with first-touch, last-touch, and linear credit models side-by-side.','Designed cohort analysis views segmented by acquisition channel and campaign type.','Deployed to Looker Studio with automated email digests for the marketing team.'],
-    outcome:'Weekly reporting time dropped from 6 hours to under 1 hour. The team identified 3 campaigns with high click volume but near-zero revenue contribution — reallocating that budget improved ROAS by 22%.',
-    tags:['GA4','Meta Ads API','Python','Looker Studio','Attribution','Cohort Analysis']
+    en:{
+      label:'Client Project · 2024',
+      title:'Lavana Cosmetics — CRO-Focused Website',
+      sub:'WordPress · Elementor · CRO · Funnel Design · 2024',
+      stats:[{n:'TOFU–MOFU–BOFU',l:'Funnel Framework'},{n:'3',l:'CTA Layers'},{n:'↑',l:'Conversion Rate'}],
+      ctx:'Lavana is a cosmetics brand that needed a website that not only looks good but actually drives sales. The common problem with cosmetics websites is a lack of conversion structure — lots of information but no clear path to action.',
+      steps:[
+        'Analyzed customer journey and identified friction points in the purchase process.',
+        'Designed page structure following the TOFU–MOFU–BOFU framework: awareness → consideration → decision.',
+        'Built 3 CTA layers with messaging tailored to each stage of customer awareness.',
+        'Optimized page load speed and mobile UX — critical factors for bounce rate in the cosmetics industry.',
+        'A/B tested headline and CTA variants to identify the optimal conversion configuration.'
+      ],
+      outcome:'Website achieved clear conversion structure, reduced bounce rate, and increased time on page. Purchase journey designed seamlessly from awareness through checkout.',
+      tags:['CRO','WordPress','Elementor','Funnel Design','Mobile UX','A/B Testing'],
+      sec1:'Context',sec2:'Approach',sec3:'Outcome',sec4:'Stack & Methods'
+    },
+    vi:{
+      label:'Client Project · 2024',
+      title:'Lavana Cosmetics — Website tối ưu CRO',
+      sub:'WordPress · Elementor · CRO · Funnel Design · 2024',
+      stats:[{n:'TOFU–MOFU–BOFU',l:'Funnel Framework'},{n:'3',l:'CTA Layers'},{n:'↑',l:'Conversion Rate'}],
+      ctx:'Lavana là thương hiệu mỹ phẩm cần website không chỉ đẹp mà phải bán được hàng. Vấn đề phổ biến của website mỹ phẩm là thiếu cấu trúc chuyển đổi — nhiều thông tin nhưng không dẫn được khách hàng đến hành động.',
+      steps:[
+        'Phân tích hành trình khách hàng và xác định điểm ma sát (friction points) trong quá trình mua hàng.',
+        'Thiết kế cấu trúc trang theo framework TOFU–MOFU–BOFU: nhận biết → cân nhắc → quyết định.',
+        'Xây dựng 3 lớp CTA với thông điệp phù hợp từng giai đoạn nhận thức của khách hàng.',
+        'Tối ưu tốc độ tải trang và mobile UX — yếu tố quyết định tỷ lệ thoát trang (bounce rate) trong ngành mỹ phẩm.',
+        'A/B test các biến thể headline và CTA để xác định cấu hình chuyển đổi tốt nhất.'
+      ],
+      outcome:'Website đạt cấu trúc chuyển đổi rõ ràng, giảm tỷ lệ thoát trang và tăng thời gian ở lại trang. Hành trình mua hàng được thiết kế liền mạch từ điểm nhận biết đến checkout.',
+      tags:['CRO','WordPress','Elementor','Funnel Design','Mobile UX','A/B Testing'],
+      sec1:'Bối cảnh',sec2:'Cách tiếp cận',sec3:'Kết quả',sec4:'Stack & Phương pháp'
+    }
   },
   p3:{
-    label:'Project 03',title:'AI Conversion Chatbot',sub:'OpenAI API · JavaScript · Landing Page CRO · 2025',
-    stats:[{n:'+22%',l:'Form Submissions'},{n:'−28%',l:'Bounce Rate'},{n:'2.4×',l:'Session Time'}],
-    ctx:'A SaaS landing page was generating traffic but suffering from a high drop-off rate before the signup form. User research revealed that visitors had unanswered product questions they could not resolve from static copy alone.',
-    steps:['Analyzed session recordings and exit surveys to identify top visitor questions and objections.','Designed a system prompt architecture giving the chatbot product context, tone guidelines, and response constraints.','Built the chatbot UI in vanilla JavaScript — non-blocking, accessible, mobile-optimized.','Implemented intent detection: visitors asking pricing questions are routed to a CTA; feature questions receive detailed answers.','A/B tested chatbot placement (bottom-right float vs. inline mid-page trigger) — inline won by +9% in submissions.'],
-    outcome:'Form submission rate increased by 22%. Bounce rate dropped 28% for users who engaged with the chatbot. Average session duration increased 2.4×, indicating higher-quality engagement.',
-    tags:['OpenAI API','JavaScript','CRO','A/B Testing','UX Research']
+    en:{
+      label:'Client Project · 2024',
+      title:'Francisco Beauty — SEO Blog & Email Funnel',
+      sub:'WordPress · RankMath · FluentCRM · Email Automation · 2024',
+      stats:[{n:'SEO',l:'Structured Blog'},{n:'FluentCRM',l:'Email Automation'},{n:'Ebook',l:'Lead Magnet'}],
+      ctx:'Francisco is a skincare spa that needed to build long-term organic traffic rather than relying solely on paid advertising. Solution: build a complete inbound funnel — SEO blog attracts readers → lead magnet captures emails → email automation nurtures leads into customers.',
+      steps:[
+        'Conducted intent-based keyword research in the skincare niche and categorized by customer journey stage.',
+        'Built blog content structure using cluster model (pillar page + supporting articles) to increase SEO authority.',
+        'Optimized SEO Onpage with RankMath: schema markup, internal linking, meta optimization, entity SEO.',
+        'Designed lead magnet (skincare ebook) and high-converting email capture form.',
+        'Set up 5-step email automation sequence with FluentCRM: welcome → education → social proof → offer → follow-up.'
+      ],
+      outcome:'Complete inbound system from SEO to email automation. Organic traffic began increasing after 60 days. Email automation runs 24/7 with no manual intervention, nurturing leads automatically.',
+      tags:['SEO','RankMath','WordPress','FluentCRM','Email Automation','Lead Magnet','Content Strategy'],
+      sec1:'Context',sec2:'Approach',sec3:'Outcome',sec4:'Stack & Methods'
+    },
+    vi:{
+      label:'Client Project · 2024',
+      title:'Francisco Beauty — Blog SEO & Phễu Email',
+      sub:'WordPress · RankMath · FluentCRM · Email Automation · 2024',
+      stats:[{n:'SEO',l:'Structured Blog'},{n:'FluentCRM',l:'Email Automation'},{n:'Ebook',l:'Lead Magnet'}],
+      ctx:'Francisco là spa skincare cần xây dựng traffic hữu cơ dài hạn thay vì chỉ phụ thuộc quảng cáo trả tiền. Giải pháp: xây dựng inbound funnel hoàn chỉnh — blog SEO thu hút đọc giả → lead magnet capture email → email automation nuôi dưỡng lead thành khách hàng.',
+      steps:[
+        'Nghiên cứu từ khóa intent-based trong lĩnh vực skincare và phân loại theo giai đoạn hành trình khách hàng.',
+        'Xây dựng cấu trúc nội dung blog theo cluster model (pillar page + supporting articles) để tăng authority SEO.',
+        'Tối ưu SEO Onpage với RankMath: schema markup, internal linking, meta optimization, entity SEO.',
+        'Thiết kế lead magnet (ebook skincare) và form thu thập email có tỷ lệ opt-in cao.',
+        'Thiết lập chuỗi email automation 5 bước với FluentCRM: welcome → education → social proof → offer → follow-up.'
+      ],
+      outcome:'Hệ thống inbound hoàn chỉnh từ SEO đến email automation. Traffic hữu cơ bắt đầu tăng sau 60 ngày. Email automation chạy 24/7 không cần can thiệp thủ công, nuôi dưỡng lead tự động.',
+      tags:['SEO','RankMath','WordPress','FluentCRM','Email Automation','Lead Magnet','Content Strategy'],
+      sec1:'Bối cảnh',sec2:'Cách tiếp cận',sec3:'Kết quả',sec4:'Stack & Phương pháp'
+    }
   },
-  c1:{
-    label:'Case Study',title:'AI-Driven Ad Creative Testing',sub:'Meta Ads · Google Ads · Generative AI · 2024',
-    stats:[{n:'+20%',l:'CTR Lift'},{n:'40+',l:'Ad Variants'},{n:'12d',l:'Time to Significance'}],
-    ctx:'An e-commerce client was running static ad creatives across Meta and Google for 6+ months with declining CTR and rising CPCs. The hypothesis: creative fatigue was the primary driver, not audience saturation.',
-    steps:['Audited 90 days of ad performance data to identify fatigued creative patterns and top-performing angles.','Developed a generative AI prompt framework based on 5 copy angles: FOMO, social proof, outcome-focused, curiosity, and objection handling.','Generated 40+ copy variants per angle, filtered by brand voice scoring.','Structured a statistically rigorous A/B test using MDE of 10%, power of 80%, and significance threshold of 95%.','Allocated budget dynamically — winning variants received increased spend within 48 hours of statistical significance.'],
-    outcome:'The AI-generated "outcome-focused" copy angle outperformed all controls. CTR increased by 20% and CPC dropped 14% within the test window. Full rollout produced a 17% improvement in ROAS over 30 days.',
-    tags:['Meta Ads','Google Ads','Generative AI','A/B Testing','Copy Strategy','Statistics']
-  },
-  c2:{
-    label:'Case Study',title:'Conversion Funnel Restructure',sub:'CRO · UX Audit · Hotjar · 2024',
-    stats:[{n:'−15%',l:'CPA Reduction'},{n:'+11%',l:'Checkout Rate'},{n:'3',l:'Funnel Steps Removed'}],
-    ctx:"A lead generation funnel for a B2B SaaS product had a 68% drop-off rate between the pricing page and form submission. Traffic quality was validated — the conversion problem was structural, not demand-driven.",
-    steps:["Conducted a full heuristic audit of the funnel against Nielsen's 10 usability principles.",'Analyzed Hotjar session recordings (n=200) and heatmaps to identify friction points and rage-click zones.','Ran 5-second tests on the value proposition headline — original copy scored below average on clarity.','Redesigned messaging hierarchy: lead with outcome, defer features to secondary position.','Reduced form fields from 9 to 4 by deferring non-essential data collection to post-signup onboarding.','Eliminated a redundant confirmation page between form and CTA — reduced steps from 5 to 2.'],
-    outcome:'Checkout completion rate increased 11%. CPA dropped 15% within 30 days of launch. The simplified form alone accounted for 60% of the conversion lift based on isolated testing.',
-    tags:['CRO','UX Audit','Hotjar','A/B Testing','Copywriting','Form Optimization']
-  },
-  c3:{
-    label:'Case Study',title:'Retention Loop Engineering',sub:'Email Automation · In-App Messaging · Cohort Analysis · 2025',
-    stats:[{n:'+34%',l:'D30 Retention'},{n:'5',l:'Trigger Sequences'},{n:'2.1×',l:'Feature Adoption'}],
-    ctx:"A mobile app's Day 1 activation rate was healthy (72%) but Day 30 retention was critically low at 18%. Cohort analysis revealed a clear activation cliff: users who completed 3+ core actions in the first session retained at 3× the rate of those who completed fewer.",
-    steps:['Mapped the user lifecycle using event data: activation → habit formation → churn risk signals.','Identified the "activation threshold" (3 core actions in session 1) as the primary retention predictor.','Designed 5 behavioral trigger sequences: onboarding nudge, feature discovery, re-engagement at day 3/7/14, and win-back at day 21.','Built segmented cohort dashboards to monitor retention curves by acquisition channel and onboarding path.','Ran multivariate tests on subject lines, send timing, and CTA language across email and in-app channels.'],
-    outcome:'D30 retention increased from 18% to 24% (+34% relative lift). Feature adoption rates doubled within the first week for users in the new onboarding flow. The Day 7 re-engagement sequence showed the highest incremental impact.',
-    tags:['Retention','Email Automation','In-App Messaging','Cohort Analysis','Behavioral Triggers','LTV']
+  p4:{
+    en:{
+      label:'Research Project · 2025',
+      title:'APDRoom+ — Student Housing Platform',
+      sub:'Product Design · User Research · Digital Marketing · 2025',
+      stats:[{n:'Student',l:'Target Market'},{n:'UX',l:'Journey Mapped'},{n:'MVP',l:'Platform Built'}],
+      ctx:'APDRoom+ solves a real problem for APD students and nearby schools: lack of a reliable, transparent, and budget-friendly channel to find accommodation. The project combines user research, product design, and digital marketing strategy.',
+      steps:[
+        'Conducted user research (interviews + surveys) to identify pain points in students\' room-hunting process.',
+        'Created user journey maps and personas for 3 user groups: first-year students, transfer students, and landlords.',
+        'Designed wireframes and prototypes for a platform connecting room seekers and landlords online.',
+        'Built go-to-market strategy: Facebook, Zalo channels and local SEO keywords to acquire first users.',
+        'Established KPI measurement system: number of listings, successful connections, average time to find a room.'
+      ],
+      outcome:'MVP platform built and tested within the APD student community. Project demonstrates the ability to think in product + marketing simultaneously — from problem discovery to go-to-market execution.',
+      tags:['Product Design','User Research','Persona','User Journey','Go-to-Market','SEO Local','Facebook Marketing'],
+      sec1:'Context',sec2:'Approach',sec3:'Outcome',sec4:'Stack & Methods'
+    },
+    vi:{
+      label:'Research Project · 2025',
+      title:'APDRoom+ — Nền tảng kết nối chỗ ở sinh viên',
+      sub:'Product Design · User Research · Digital Marketing · 2025',
+      stats:[{n:'Student',l:'Target Market'},{n:'UX',l:'Journey Mapped'},{n:'MVP',l:'Platform Built'}],
+      ctx:'APDRoom+ giải quyết bài toán thực tế của sinh viên APD và các trường lân cận: thiếu kênh tìm chỗ ở đáng tin cậy, minh bạch thông tin và phù hợp ngân sách. Dự án kết hợp nghiên cứu người dùng, thiết kế sản phẩm và chiến lược marketing số.',
+      steps:[
+        'Thực hiện user research (phỏng vấn + khảo sát) để xác định pain points trong quá trình tìm nhà trọ của sinh viên.',
+        'Lập user journey map và xây dựng persona cho 3 nhóm người dùng: sinh viên năm 1, sinh viên chuyển trường, và chủ nhà.',
+        'Thiết kế wireframe và prototype platform kết nối người tìm phòng và chủ nhà trực tuyến.',
+        'Xây dựng chiến lược go-to-market: kênh Facebook, Zalo và SEO từ khóa địa phương để thu hút user đầu tiên.',
+        'Thiết lập hệ thống đo lường KPI: số listing, số kết nối thành công, thời gian tìm phòng trung bình.'
+      ],
+      outcome:'Platform MVP được xây dựng và thử nghiệm trong cộng đồng sinh viên APD. Dự án thể hiện khả năng tư duy product + marketing đồng thời — từ problem discovery đến go-to-market execution.',
+      tags:['Product Design','User Research','Persona','User Journey','Go-to-Market','SEO Local','Facebook Marketing'],
+      sec1:'Bối cảnh',sec2:'Cách tiếp cận',sec3:'Kết quả',sec4:'Stack & Phương pháp'
+    }
   }
 };
 
+let currentModalId = null;
+
 function openModal(id){
-  const d=M[id]; if(!d) return;
+  currentModalId = id;
+  renderModal();
+  document.getElementById('moverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function renderModal(){
+  if(!currentModalId) return;
+  const d = M[currentModalId][lang];
+  if(!d) return;
+  
   document.getElementById('mcontent').innerHTML=`
     <div class="mlabel">${d.label}</div>
     <div class="mtitle">${d.title}</div>
     <div class="msub">${d.sub}</div>
     <div class="mstats">${d.stats.map(s=>`<div class="mscard"><span class="msnum">${s.n}</span><span class="mslbl">${s.l}</span></div>`).join('')}</div>
-    <div class="msec"><div class="msec-t">Context</div><div class="mbody"><p>${d.ctx}</p></div></div>
-    <div class="msec"><div class="msec-t">Approach</div><ol class="msteps">${d.steps.map(s=>`<li>${s}</li>`).join('')}</ol></div>
-    <div class="msec"><div class="msec-t">Outcome</div><div class="mbody"><p>${d.outcome}</p></div></div>
-    <div class="msec"><div class="msec-t">Stack & Methods</div><div class="mtags">${d.tags.map(t=>`<span class="mtag">${t}</span>`).join('')}</div></div>
+    <div class="msec"><div class="msec-t">${d.sec1}</div><div class="mbody"><p>${d.ctx}</p></div></div>
+    <div class="msec"><div class="msec-t">${d.sec2}</div><ol class="msteps">${d.steps.map(s=>`<li>${s}</li>`).join('')}</ol></div>
+    <div class="msec"><div class="msec-t">${d.sec3}</div><div class="mbody"><p>${d.outcome}</p></div></div>
+    <div class="msec"><div class="msec-t">${d.sec4}</div><div class="mtags">${d.tags.map(t=>`<span class="mtag">${t}</span>`).join('')}</div></div>
   `;
-  document.getElementById('moverlay').classList.add('open');
-  document.body.style.overflow='hidden';
 }
+
 function closeModal(){
   document.getElementById('moverlay').classList.remove('open');
   document.body.style.overflow='';
+  currentModalId = null;
 }
 function closeOut(e){ if(e.target===document.getElementById('moverlay')) closeModal(); }
 document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
 
-/* ── DARK MODE ── */
+/* DARK MODE */
 function toggleTheme(){
   const h=document.documentElement;
   const dark=h.getAttribute('data-theme')==='dark';
@@ -491,19 +675,20 @@ function toggleTheme(){
 }
 (()=>{ const s=localStorage.getItem('theme'); if(s) document.documentElement.setAttribute('data-theme',s); })();
 
-/* ── LANGUAGE ── */
+/* LANGUAGE */
 let lang='en';
 function toggleLang(){
   lang=lang==='en'?'vi':'en';
   document.getElementById('lang-toggle').textContent=lang==='en'?'VI':'EN';
-
   document.documentElement.lang=lang;
   document.querySelectorAll('[data-en][data-vi]').forEach(el=>{
     const v=el.getAttribute('data-'+lang); if(v) el.textContent=v;
   });
+  // Re-render modal if one is open
+  if(currentModalId) renderModal();
 }
 
-/* ── SCROLL REVEAL ── */
+/* SCROLL REVEAL */
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
 },{threshold:.08});
