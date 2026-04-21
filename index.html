@@ -146,16 +146,63 @@ footer{border-top:1px solid var(--rule);padding:28px 32px;max-width:var(--max);m
 footer a{color:var(--accent);text-decoration:none;}
 footer a:hover{text-decoration:underline;}
 
-/* RESPONSIVE */
-@media(max-width:700px){
-  .topbar-inner,.page{padding-left:20px;padding-right:20px;}
+/* RESPONSIVE — TABLET LARGE (≤1024px) */
+@media(max-width:1024px){
+  :root{--max:100%;--col-l:220px;}
+  .topbar-inner,.page{padding-left:28px;padding-right:28px;}
+}
+
+/* RESPONSIVE — TABLET (≤768px) */
+@media(max-width:768px){
+  :root{--col-l:200px;}
+  .topbar-inner,.page{padding-left:24px;padding-right:24px;}
+  .topbar-inner{height:48px;}
+  .tnav{gap:12px;}
   .hs{display:none;}
-  .pgrid,.bgrid{grid-template-columns:1fr;gap:28px;}
-  .av-wrap{flex-direction:row;align-items:center;}
-  .exp-header{flex-direction:column;gap:4px;}
-  .mbox{padding:28px 22px;}
-  .mstats{grid-template-columns:repeat(2,1fr);}
-  footer{flex-direction:column;gap:8px;text-align:center;padding:20px;}
+  .pgrid{grid-template-columns:1fr;gap:24px;}
+  .bgrid{grid-template-columns:200px 1fr;gap:28px;}
+  .av-wrap{flex-direction:row;align-items:center;gap:20px;}
+  .avatar{width:120px;height:120px;font-size:36px;flex-shrink:0;}
+  .prof-h1{font-size:30px;}
+  .bio{font-size:16px;}
+  .mbox{padding:32px 28px;}
+  .mstats{grid-template-columns:repeat(3,1fr);}
+}
+
+/* RESPONSIVE — MOBILE (≤600px) */
+@media(max-width:600px){
+  :root{--col-l:100%;}
+  .topbar-inner,.page{padding-left:18px;padding-right:18px;}
+  .tnav{gap:8px;}
+  .nbtn{padding:4px 8px;font-size:11px;}
+  .rbtn{padding:4px 10px;}
+  .pgrid,.bgrid{grid-template-columns:1fr;gap:24px;}
+  .av-wrap{flex-direction:row;align-items:center;gap:16px;}
+  .avatar{width:100px;height:100px;font-size:30px;flex-shrink:0;}
+  .prof-h1{font-size:26px;}
+  .role{font-size:11px;}
+  .bio{font-size:15px;max-width:100%;}
+  .crow{gap:12px;flex-direction:column;}
+  .exp-header{flex-direction:column;gap:3px;}
+  .exp-period{padding-top:0;}
+  .citem{display:grid;grid-template-columns:1fr auto;gap:0;}
+  .cstat{text-align:left;}
+  .moverlay{padding:20px 12px;}
+  .mbox{padding:24px 18px;border-radius:4px;}
+  .mstats{grid-template-columns:repeat(2,1fr);gap:8px;}
+  .msnum{font-size:20px;}
+  .mtitle{font-size:22px;}
+  footer{flex-direction:column;gap:8px;text-align:center;padding:20px 18px;}
+}
+
+/* RESPONSIVE — MOBILE XS (≤380px) */
+@media(max-width:380px){
+  .topbar-inner,.page{padding-left:14px;padding-right:14px;}
+  .tnav{gap:6px;}
+  .rbtn{display:none;}
+  .avatar{width:80px;height:80px;font-size:24px;}
+  .prof-h1{font-size:22px;}
+  .mstats{grid-template-columns:1fr 1fr;gap:6px;}
 }
 </style>
 </head>
@@ -171,8 +218,8 @@ footer a:hover{text-decoration:underline;}
       <li class="hs"><a href="#projects" data-en="Projects" data-vi="Dự án">Projects</a></li>
       <li class="hs"><a href="#achievements" data-en="Awards" data-vi="Thành tích">Awards</a></li>
       <li>
-        <a class="nbtn rbtn" href="YOUR_GOOGLE_DRIVE_PDF_LINK_HERE" target="_blank" rel="noopener"
-           data-en="↓ Résumé" data-vi="↓ Hồ sơ">↓ CV</a>
+        <a class="nbtn rbtn" href="https://drive.google.com/file/d/14mkIxg7CN7ayAI655fzI1ed1fFOCr3nC/view?usp=sharing" target="_blank" rel="noopener"
+           data-en="↓ Résumé" data-vi="↓ Hồ sơ">↓ Résumé</a>
       </li>
       <li><button class="nbtn" id="lang-toggle" onclick="toggleLang()">VI</button></li>
       <li>
@@ -470,7 +517,7 @@ footer a:hover{text-decoration:underline;}
   <span>© 2026 Đặng Trần Đạt</span>
   <span>
     <a href="mailto:dtrdat.work@gmail.com">dtrdat.work@gmail.com</a> &nbsp;·&nbsp;
-    <a href="YOUR_GOOGLE_DRIVE_PDF_LINK_HERE" target="_blank" rel="noopener"
+    <a href=https://drive.google.com/file/d/14mkIxg7CN7ayAI655fzI1ed1fFOCr3nC/view?usp=sharing" target="_blank" rel="noopener"
        data-en="Download CV ↓" data-vi="Tải CV ↓">Download CV ↓</a>
   </span>
 </footer>
